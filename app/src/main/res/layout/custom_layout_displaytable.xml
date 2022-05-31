@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/lightwhite"
+    android:padding="10dp"
+    android:layout_marginBottom="20dp">
+
+    <TextView
+        android:id="@+id/txt_customtable_TenBanAn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/img_customtable_BanAn"
+        android:layout_width="140dp"
+        android:layout_height="120dp"
+        android:layout_below="@+id/txt_customtable_TenBanAn"
+        android:background="@color/colorPrimary"
+        android:src="@drawable/ic_baseline_person_24" />
+
+    <ImageView
+        android:id="@+id/img_customtable_GoiMon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_customtable_BanAn"
+        android:layout_marginLeft="6dp"
+        android:background="@color/lightwhite"
+        android:padding="5dp"
+        android:src="@drawable/ic_baseline_radio_button_unchecked"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/img_customtable_ThanhToan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_customtable_BanAn"
+        android:layout_marginLeft="12dp"
+        android:layout_toRightOf="@id/img_customtable_GoiMon"
+        android:background="@color/lightwhite"
+        android:padding="5dp"
+        android:src="@drawable/ic_baseline_payments_24"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/img_customtable_AnNut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_customtable_BanAn"
+        android:layout_marginLeft="12dp"
+        android:layout_toRightOf="@id/img_customtable_ThanhToan"
+        android:background="@color/lightwhite"
+        android:padding="5dp"
+        android:src="@drawable/ic_baseline_backspace_24"
+        android:visibility="invisible"
+
+        />
+
+</RelativeLayout>
