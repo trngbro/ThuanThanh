@@ -143,8 +143,32 @@
         <entry key="..\:/Users/trngx/AndroidStudioProjects/TempTamSport2/QLcoffee/app/src/main/res/menu/main_menu_navigation.xml" value="0.25" />
         <entry key="..\:/Users/trngx/AndroidStudioProjects/TempTamSport2/QLcoffee/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.186" />
         <entry key="..\:/Users/trngx/AndroidStudioProjects/TempTamSport2/QLcoffee/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.186" />
-        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/addstaff_layout.xml" value="0.12158054711246201" />
-        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/welcome_layout.xml" value="0.264" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/addcategory_layout.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/addmenu_layout.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/addstaff_layout.xml" value="0.2" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/addtable_layout.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/amount_menu_layout.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/custom_layout_displaycategory.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/custom_layout_displaymenu.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/custom_layout_displaystaff.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/custom_layout_displaystatistic.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/custom_layout_displaytable.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/custom_layout_paymentmenu.xml" value="0.264" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/detailstatistic_layout.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/displaycategory_layout.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/displayhome_layout.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/displaymenu_layout.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/displaystaff_layout.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/displaystatistic_layout.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/displaytable_layout.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/edittable_layout.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/home_layout.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/login_layout.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/menu_navigation_header.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/payment_layout.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/register2nd_layout.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/register_layout.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/welcome_layout.xml" value="0.1" />
       </map>
     </option>
   </component>

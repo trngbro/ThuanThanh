@@ -7,8 +7,7 @@
     tools:context=".Activities.WelcomeActivity"
     android:orientation="vertical"
     android:padding="30dp"
-    android:background="@color/white"
-    >
+    android:background="@color/white" >
 
     <ImageView
         android:layout_width="200dp"
@@ -49,8 +48,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        >
+        android:layout_marginTop="40dp" >
 
         <Button
             android:id="@+id/btn_login"
@@ -64,9 +62,7 @@
             android:textColor="@color/black"
             app:backgroundTint="@color/colorPrimary"
             android:onClick="callLoginFromWel"
-            android:transitionName="transition_login"
-
-            />
+            android:transitionName="transition_login" />
 
         <Button
             android:id="@+id/btn_signup"

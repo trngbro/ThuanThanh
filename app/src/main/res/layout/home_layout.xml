@@ -7,29 +7,25 @@
     android:layout_height="match_parent"
     tools:context=".Activities.HomeActivity"
     tools:openDrawer="start"
-    android:id="@+id/drawer_layout"
-    ><!--tools:openDrawer="start" -->
+    android:id="@+id/drawer_layout" >
 
     
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent" >
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimary"
-        >
-
+            android:background="@color/colorPrimary" >
         </androidx.appcompat.widget.Toolbar>
 
         <FrameLayout
             android:id="@+id/contentView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent" >
         </FrameLayout>
 
     </LinearLayout>
@@ -43,7 +39,5 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/menu_navigation_header"
         app:menu="@menu/main_menu_navigation"/>
-    
-    
-    
+
 </androidx.drawerlayout.widget.DrawerLayout>

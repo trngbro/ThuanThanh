@@ -7,8 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".Activities.AmountMenuActivity"
     android:orientation="vertical"
-    android:padding="10dp"
-    >
+    android:padding="10dp" >
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtl_amountmenu_SoLuong"
@@ -20,15 +19,15 @@
         app:boxStrokeColor="@color/black"
         app:boxStrokeWidthFocused="2dp"
         app:endIconTint="@color/black"
-        app:endIconMode="clear_text"
-        >
+        app:endIconMode="clear_text" >
+
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="@color/black"
             android:fontFamily="@font/muli"
-            android:inputType="text"
-            />
+            android:inputType="text" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -40,4 +39,5 @@
         android:text="Đồng ý"
         android:textColor="@color/black"
         app:backgroundTint="#FECE2F" />
+
 </LinearLayout>

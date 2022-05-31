@@ -8,14 +8,12 @@
     android:background="@color/colorPrimary"
     android:padding="30dp"
     android:transitionName="transition_signup"
-    android:id="@+id/layoutRegister"
-    >
+    android:id="@+id/layoutRegister" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical" >
 
         <ImageView
             android:id="@+id/img_signup_back"
@@ -23,12 +21,10 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_arrow_back_24"
             android:padding="5dp"
-            android:onClick="backFromRegister"
-            />
+            android:onClick="backFromRegister" />
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content" >
             <TextView
                 android:id="@+id/txt_signup_title"
                 android:layout_width="wrap_content"
@@ -40,8 +36,7 @@
                 android:textAllCaps="true"
                 android:layout_marginTop="20dp"
                 android:transitionName="transition_title_text"
-                android:layout_centerVertical="true"
-                />
+                android:layout_centerVertical="true" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -55,8 +50,7 @@
                 android:text="1/2"
                 android:textAllCaps="true"
                 android:textColor="@color/black"
-                android:textSize="18sp"
-                />
+                android:textSize="18sp" />
 
         </RelativeLayout>
 
@@ -64,8 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="40dp"
-            >
+            android:layout_marginTop="40dp" >
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtl_signup_HoVaTen"
                 android:layout_width="match_parent"
@@ -79,14 +72,12 @@
                 app:endIconMode="clear_text"
                 app:endIconTint="@color/black"
                 app:boxStrokeWidthFocused="2dp"
-                app:boxStrokeColor="@color/black"
-                >
+                app:boxStrokeColor="@color/black" >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="text"
-                    />
+                    android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtl_signup_TenDN"
@@ -101,14 +92,12 @@
                 app:endIconMode="clear_text"
                 app:endIconTint="@color/black"
                 app:boxStrokeWidthFocused="2dp"
-                app:boxStrokeColor="@color/black"
-                >
+                app:boxStrokeColor="@color/black" >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="text"
-                    />
+                    android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtl_signup_Email"
@@ -123,14 +112,12 @@
                 app:endIconMode="clear_text"
                 app:endIconTint="@color/black"
                 app:boxStrokeWidthFocused="2dp"
-                app:boxStrokeColor="@color/black"
-                >
+                app:boxStrokeColor="@color/black" >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="textEmailAddress"
-                    />
+                    android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtl_signup_SDT"
@@ -145,14 +132,12 @@
                 app:endIconMode="clear_text"
                 app:endIconTint="@color/black"
                 app:boxStrokeWidthFocused="2dp"
-                app:boxStrokeColor="@color/black"
-                >
+                app:boxStrokeColor="@color/black" >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="phone"
-                    />
+                    android:inputType="phone" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/txtl_signup_MatKhau"
@@ -168,14 +153,12 @@
                 app:passwordToggleTint="@color/black"
                 app:endIconTint="@color/black"
                 app:boxStrokeWidthFocused="2dp"
-                app:boxStrokeColor="@color/black"
-                >
+                app:boxStrokeColor="@color/black" >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="textPassword"
-                    />
+                    android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
@@ -190,8 +173,7 @@
             android:elevation="5dp"
             android:text="@string/btn_next"
             android:textColor="@color/white"
-            app:backgroundTint="@color/black"
-            />
+            app:backgroundTint="@color/black" />
     </LinearLayout>
 
 </ScrollView>

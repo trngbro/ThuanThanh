@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@color/lightwhite"
     android:padding="10dp"
-    android:layout_marginBottom="20dp">
+    android:layout_marginBottom="20dp" >
 
     <TextView
         android:id="@+id/txt_customtable_TenBanAn"
@@ -21,7 +21,7 @@
         android:layout_height="120dp"
         android:layout_below="@+id/txt_customtable_TenBanAn"
         android:background="@color/colorPrimary"
-        android:src="@drawable/ic_baseline_person_24" />
+        android:src="@drawable/ic_baseline_weekend_24" />
 
     <ImageView
         android:id="@+id/img_customtable_GoiMon"
@@ -56,8 +56,6 @@
         android:background="@color/lightwhite"
         android:padding="5dp"
         android:src="@drawable/ic_baseline_backspace_24"
-        android:visibility="invisible"
-
-        />
+        android:visibility="invisible" />
 
 </RelativeLayout>

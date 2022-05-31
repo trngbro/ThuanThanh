@@ -2,19 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical" >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Danh sách sản phẩm"
+        android:text="Thực đơn"
         android:textSize="28sp"
         android:fontFamily="@font/muli_black"
         android:padding="10dp"
         android:textAllCaps="true"
         android:textColor="@color/black"
-        android:layout_gravity="center"
-        />
+        android:layout_gravity="center" />
 
     <GridView
         android:id="@+id/gvDisplayMenu"
@@ -25,8 +24,7 @@
         android:paddingRight="5dp"
         android:paddingTop="15dp"
         android:verticalSpacing="5dp"
-        android:horizontalSpacing="5dp">
-
+        android:horizontalSpacing="5dp" >
 
     </GridView>
 

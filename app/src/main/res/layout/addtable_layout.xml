@@ -7,29 +7,28 @@
     android:layout_height="match_parent"
     tools:context=".Activities.AddTableActivity"
     android:orientation="vertical"
-    android:padding="10dp"
-    >
+    android:padding="10dp" >
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtl_addtable_tenban"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:hint="Nhập tên phiếu"
+        android:hint="Nhập tên bàn"
         android:layout_marginTop="100px"
         app:hintTextColor="@color/black"
         app:boxStrokeColor="@color/black"
         app:boxStrokeWidthFocused="2dp"
         app:endIconTint="@color/black"
-        app:endIconMode="clear_text"
-        >
+        app:endIconMode="clear_text" >
+
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="@color/black"
             android:fontFamily="@font/muli"
-            android:inputType="text"
-            />
+            android:inputType="text" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -38,7 +37,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:backgroundTint="@color/colorPrimary"
-        android:text="Tạo phiếu"
+        android:text="Tạo bàn"
         android:textColor="@color/black"
         app:backgroundTint="#FECE2F" />
+
 </LinearLayout>

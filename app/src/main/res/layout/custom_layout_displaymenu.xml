@@ -11,8 +11,9 @@
             android:id="@+id/img_custommenu_HinhMon"
             android:layout_width="wrap_content"
             android:layout_height="200dp"
-            android:scaleType="matrix"
+            android:scaleType="fitCenter"
             android:src="@drawable/pic_item" />
+
         <TextView
             android:id="@+id/txt_custommenu_TenMon"
             android:layout_width="match_parent"
@@ -20,24 +21,24 @@
             android:textColor="@color/white"
             android:fontFamily="@font/muli_black"
             android:background="@color/black50"
-            android:text="Adidas shoes 1"
+            android:text="Cơm niêu"
             android:layout_gravity="bottom"
             android:textSize="20sp"
-            android:padding="5dp"/>
+            android:padding="5dp" />
 
         <TextView
             android:id="@+id/txt_custommenu_TinhTrang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:text="Còn hàng"
-            android:textSize="12dp"
-            android:textColor="@color/white"
-            android:background="@drawable/round_corner_textview"
             android:layout_gravity="top|right"
             android:layout_margin="5dp"
-            />
+            android:background="@drawable/round_corner_textview"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="Còn"
+            android:textColor="@color/white"
+            android:textSize="12dp" />
+
     </FrameLayout>
 
     <RelativeLayout
@@ -46,8 +47,8 @@
         android:layout_below="@+id/img_custommenu_HinhMon"
         android:background="@color/colorPrimary"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        >
+        android:paddingRight="10dp" >
+
         <TextView
             android:id="@+id/txt_custommenu_GiaTien"
             android:layout_width="wrap_content"
@@ -58,8 +59,7 @@
             android:padding="3dp"
             android:layout_centerInParent="true"
             android:textSize="16sp"
-            android:textColor="@color/black"
-            />
+            android:textColor="@color/black" />
 
     </RelativeLayout>
 

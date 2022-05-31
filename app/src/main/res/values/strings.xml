@@ -24,12 +24,12 @@
     <string name="not_empty">Không được để trống!</string>
     <string name="opentoggle">Mở</string>
     <string name="closetoggle">Đóng</string>
-    <string name="addTable">Thêm phiếu mua</string>
-    <string name="tablename">Tên phiếu</string>
-    <string name="addMenu">Thêm sản phẩm</string>
-    <string name="addmenu">Thêm sản phẩm</string>
-    <string name="addCategory">Thêm loại</string>
-    <string name="addcategory">Thêm loại</string>
-    <string name="editcategory">Sửa loại</string>
+    <string name="addTable">Thêm bàn ăn</string>
+    <string name="tablename">Tên bàn</string>
+    <string name="addMenu">Thêm món ăn</string>
+    <string name="addmenu">Thêm món ăn</string>
+    <string name="addCategory">Thêm thực đơn</string>
+    <string name="addcategory">Thêm thực đơn</string>
+    <string name="editcategory">Sửa thực đơn</string>
     <string name="choseimg">Chọn hình</string>
 </resources>
