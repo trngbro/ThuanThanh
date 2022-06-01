@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-        <style name="Theme.TamSport" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <style name="Theme.ThuanThanh" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
 
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
