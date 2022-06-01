@@ -40,42 +40,40 @@ public class DisplayCategoryFragment extends Fragment {
     FragmentManager fragmentManager;
     int maban;
 
-    ActivityResultLauncher<Intent> resultLauncherCategory = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    if(result.getResultCode() == Activity.RESULT_OK){
-                        Intent intent = result.getData();
-                        boolean ktra = intent.getBooleanExtra("ktra",false);
-                        String chucnang = intent.getStringExtra("chucnang");
-                        if(chucnang.equals("themloai"))
-                        {
-                            if(ktra){
-                                HienThiDSLoai();
-                                Toast.makeText(getActivity(),"Thêm thành công",Toast.LENGTH_SHORT).show();
-                            }else {
-                                Toast.makeText(getActivity(),"Thêm thất bại",Toast.LENGTH_SHORT).show();
-                            }
-                        }else {
-                            if(ktra){
-                                HienThiDSLoai();
-                                Toast.makeText(getActivity(),"Sủa thành công",Toast.LENGTH_SHORT).show();
-                            }else {
-                                Toast.makeText(getActivity(),"sửa thất bại",Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
+    ActivityResultLauncher<Intent> resultLauncherCategory = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if(result.getResultCode() == Activity.RESULT_OK){
+                Intent intent = result.getData();
+                boolean ktra = intent.getBooleanExtra("ktra",false);
+                String chucnang = intent.getStringExtra("chucnang");
+                if(chucnang.equals("themloai"))
+                {
+                    if(ktra){
+                        HienThiDSLoai();
+                        Toast.makeText(getActivity(),"Thêm thành công",Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(getActivity(),"Thêm thất bại",Toast.LENGTH_SHORT).show();
+                    }
+                }else {
+                    if(ktra){
+                        HienThiDSLoai();
+                        Toast.makeText(getActivity(),"Sủa thành công",Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(getActivity(),"sửa thất bại",Toast.LENGTH_SHORT).show();
                     }
                 }
-            });
 
+            }
+        }
+    });
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.displaycategory_layout,container,false);
         setHasOptionsMenu(true);
-        ((HomeActivity)getActivity()).getSupportActionBar().setTitle("Quản lý sản phẩm");
+        ((HomeActivity)getActivity()).getSupportActionBar().setTitle("Quản lý thực đơn");
 
         gvCategory = (GridView)view.findViewById(R.id.gvCategory);
 

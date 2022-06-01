@@ -65,7 +65,6 @@ public class DisplayStatisticFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
         return view;
     }
 }

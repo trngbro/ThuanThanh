@@ -114,7 +114,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
                 RD_addmenu_HetMon.setChecked(true);
             }
 
-            BTN_addmenu_ThemMon.setText("Sửa sản phẩm");
+            BTN_addmenu_ThemMon.setText("Sửa món ăn");
         }
 
         //endregion
@@ -169,7 +169,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
                     chucnang = "themmon";
                 }
 
-                //Thêm, sửa sản phẩm dựa theo obj loaimonDTO
+                //Thêm, sửa món ăn dựa theo obj loaimonDTO
                 Intent intent = new Intent();
                 intent.putExtra("ktra",ktra);
                 intent.putExtra("chucnang",chucnang);

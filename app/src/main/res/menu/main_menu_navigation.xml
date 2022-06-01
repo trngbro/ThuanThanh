@@ -17,11 +17,11 @@
                 <group android:checkableBehavior="single">
                     <item
                         android:id="@+id/nav_table"
-                        android:title="Phiếu mua hàng"
+                        android:title="Bàn ăn"
                         android:icon="@drawable/ic_baseline_flag_24"/>
                     <item
                         android:id="@+id/nav_category"
-                        android:title="Sản phẩm"
+                        android:title="món ăn"
                         android:icon="@drawable/ic_baseline_reorder_24"/>
 
                     <item

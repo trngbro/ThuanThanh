@@ -35,47 +35,45 @@ import java.util.List;
 public class DisplayMenuFragment extends Fragment {
 
     int maloai, maban;
-    String tenloai,tinhtrang;
+    String tenloai, tinhtrang;
     GridView gvDisplayMenu;
     SanPhamDAO sanPhamDAO;
     List<SanPhamDTO> sanPhamDTOList;
     AdapterDisplayMenu adapterDisplayMenu;
 
-    ActivityResultLauncher<Intent> resultLauncherMenu = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    if(result.getResultCode() == Activity.RESULT_OK){
-                        Intent intent = result.getData();
-                        boolean ktra = intent.getBooleanExtra("ktra",false);
-                        String chucnang = intent.getStringExtra("chucnang");
-                        if(chucnang.equals("themmon"))
-                        {
-                            if(ktra){
-                                HienThiDSMon();
-                                Toast.makeText(getActivity(),"Thêm thành công",Toast.LENGTH_SHORT).show();
-                            }else {
-                                Toast.makeText(getActivity(),"Thêm thất bại",Toast.LENGTH_SHORT).show();
-                            }
-                        }else {
-                            if(ktra){
-                                HienThiDSMon();
-                                Toast.makeText(getActivity(),"Sửa thành công",Toast.LENGTH_SHORT).show();
-                            }else {
-                                Toast.makeText(getActivity(),"Sửa thất bại",Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
+    ActivityResultLauncher<Intent> resultLauncherMenu = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if(result.getResultCode() == Activity.RESULT_OK){
+                Intent intent = result.getData();
+                boolean ktra = intent.getBooleanExtra("ktra",false);
+                String chucnang = intent.getStringExtra("chucnang");
+                if(chucnang.equals("themmon"))
+                {
+                    if(ktra){
+                        HienThiDSMon();
+                        Toast.makeText(getActivity(),"Thêm thành công",Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(getActivity(),"Thêm thất bại",Toast.LENGTH_SHORT).show();
+                    }
+                }else {
+                    if(ktra){
+                        HienThiDSMon();
+                        Toast.makeText(getActivity(),"Sửa thành công",Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(getActivity(),"Sửa thất bại",Toast.LENGTH_SHORT).show();
                     }
                 }
-            });
 
+            }
+        }
+    });
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.displaymenu_layout,container,false);
-        ((HomeActivity)getActivity()).getSupportActionBar().setTitle("Quản lý sản phẩm");
+        ((HomeActivity)getActivity()).getSupportActionBar().setTitle("Quản lý thực đơn");
         sanPhamDAO = new SanPhamDAO(getActivity());
 
         gvDisplayMenu = (GridView)view.findViewById(R.id.gvDisplayMenu);
@@ -90,7 +88,7 @@ public class DisplayMenuFragment extends Fragment {
             gvDisplayMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    //nếu lấy đc mã phiếu mua mới mở
+                    //nếu lấy đc mã bàn ăn mua mới mở
                     tinhtrang = sanPhamDTOList.get(position).getTinhTrang();
                     if(maban != 0){
                         if(tinhtrang.equals("true")){
@@ -99,7 +97,7 @@ public class DisplayMenuFragment extends Fragment {
                             iAmount.putExtra("mamon", sanPhamDTOList.get(position).getMaMon());
                             startActivity(iAmount);
                         }else {
-                            Toast.makeText(getActivity(),"sản phẩm đã hết, không thể thêm", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(),"món ăn đã hết, không thể thêm", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
@@ -186,5 +184,4 @@ public class DisplayMenuFragment extends Fragment {
         gvDisplayMenu.setAdapter(adapterDisplayMenu);
         adapterDisplayMenu.notifyDataSetChanged();
     }
-
 }

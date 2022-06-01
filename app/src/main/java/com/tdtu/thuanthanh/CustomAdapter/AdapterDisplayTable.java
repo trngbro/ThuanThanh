@@ -138,7 +138,7 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
                 String tinhtrang = phieuMuaDAO.LayTinhTrangBanTheoMa(maban);
 
                 if(tinhtrang.equals("false")){
-                    //Thêm bảng gọi sản phẩm và update tình trạng phiếu mua
+                    //Thêm bảng gọi món ăn và update tình trạng bàn ăn mua
                     DonDatDTO donDatDTO = new DonDatDTO();
                     donDatDTO.setMaBan(maban);
                     donDatDTO.setMaNV(manv);

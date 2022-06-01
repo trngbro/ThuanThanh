@@ -57,7 +57,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
 
         fragmentManager = getSupportFragmentManager();
 
-        //lấy data từ mã phiếu mua đc chọn
+        //lấy data từ mã bàn ăn mua đc chọn
         Intent intent = getIntent();
         maban = intent.getIntExtra("maban",0);
         String tenban = intent.getStringExtra("tenban");
@@ -66,7 +66,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         TXT_payment_TenBan.setText(tenban);
         TXT_payment_NgayDat.setText(ngaydat);
 
-        //ktra mã phiếu mua tồn tại thì hiển thị
+        //ktra mã bàn ăn mua tồn tại thì hiển thị
         if(maban !=0 ){
             HienThiThanhToan();
 

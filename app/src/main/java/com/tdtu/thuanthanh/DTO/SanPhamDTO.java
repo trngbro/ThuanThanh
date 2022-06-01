@@ -3,7 +3,7 @@ package com.tdtu.thuanthanh.DTO;
 public class SanPhamDTO {
 
     int MaMon, MaLoai;
-    String TenMon,GiaTien,TinhTrang;
+    String TenMon, GiaTien, TinhTrang;
     byte[] HinhAnh;
 
     public int getMaMon() {

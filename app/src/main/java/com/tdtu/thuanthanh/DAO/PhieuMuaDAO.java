@@ -18,13 +18,13 @@ public class PhieuMuaDAO {
         database = createDatabase.open();
     }
 
-    //Hàm thêm phiếu mua ăn mới
+    //Hàm thêm bàn ăn mua ăn mới
     public boolean ThemBanAn(String tenban){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(CreateDatabase.TBL_PHIEUMUA_TENBAN,tenban);
-        contentValues.put(CreateDatabase.TBL_PHIEUMUA_TINHTRANG,"false");
+        contentValues.put(CreateDatabase.TBL_BANAN_TENBAN,tenban);
+        contentValues.put(CreateDatabase.TBL_BANAN_TINHTRANG,"false");
 
-        long ktra = database.insert(CreateDatabase.TBL_PHIEUMUA,null,contentValues);
+        long ktra = database.insert(CreateDatabase.TBL_BANAN,null,contentValues);
         if(ktra != 0){
             return true;
         }else {
@@ -32,9 +32,9 @@ public class PhieuMuaDAO {
         }
     }
 
-    //Hàm xóa phiếu mua ăn theo mã
+    //Hàm xóa bàn ăn mua ăn theo mã
     public boolean XoaBanTheoMa(int maban){
-        long ktra =database.delete(CreateDatabase.TBL_PHIEUMUA,CreateDatabase.TBL_PHIEUMUA_MABAN+" = "+maban,null);
+        long ktra =database.delete(CreateDatabase.TBL_BANAN,CreateDatabase.TBL_BANAN_MABAN+" = "+maban,null);
         if(ktra != 0){
             return true;
         }else {
@@ -42,12 +42,12 @@ public class PhieuMuaDAO {
         }
     }
 
-    //Sửa tên phiếu mua
+    //Sửa tên bàn ăn mua
     public boolean CapNhatTenBan(int maban, String tenban){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(CreateDatabase.TBL_PHIEUMUA_TENBAN,tenban);
+        contentValues.put(CreateDatabase.TBL_BANAN_TENBAN,tenban);
 
-        long ktra = database.update(CreateDatabase.TBL_PHIEUMUA,contentValues,CreateDatabase.TBL_PHIEUMUA_MABAN+ " = '"+maban+"' ",null);
+        long ktra = database.update(CreateDatabase.TBL_BANAN,contentValues,CreateDatabase.TBL_BANAN_MABAN+ " = '"+maban+"' ",null);
         if(ktra != 0){
             return true;
         }else {
@@ -55,16 +55,16 @@ public class PhieuMuaDAO {
         }
     }
 
-    //Hàm lấy ds các phiếu mua ăn đổ vào gridview
+    //Hàm lấy ds các bàn ăn mua ăn đổ vào gridview
     public List<PhieuMuaDTO> LayTatCaBanAn(){
         List<PhieuMuaDTO> phieuMuaDTOList = new ArrayList<PhieuMuaDTO>();
-        String query = "SELECT * FROM " +CreateDatabase.TBL_PHIEUMUA;
+        String query = "SELECT * FROM " +CreateDatabase.TBL_BANAN;
         Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             PhieuMuaDTO phieuMuaDTO = new PhieuMuaDTO();
-            phieuMuaDTO.setMaBan(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_PHIEUMUA_MABAN)));
-            phieuMuaDTO.setTenBan(cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_PHIEUMUA_TENBAN)));
+            phieuMuaDTO.setMaBan(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_BANAN_MABAN)));
+            phieuMuaDTO.setTenBan(cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_BANAN_TENBAN)));
 
             phieuMuaDTOList.add(phieuMuaDTO);
             cursor.moveToNext();
@@ -74,11 +74,11 @@ public class PhieuMuaDAO {
 
     public String LayTinhTrangBanTheoMa(int maban){
         String tinhtrang="";
-        String query = "SELECT * FROM "+CreateDatabase.TBL_PHIEUMUA + " WHERE " +CreateDatabase.TBL_PHIEUMUA_MABAN+ " = '" +maban+ "' ";
+        String query = "SELECT * FROM "+CreateDatabase.TBL_BANAN + " WHERE " +CreateDatabase.TBL_BANAN_MABAN+ " = '" +maban+ "' ";
         Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
-            tinhtrang = cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_SANPHAM_TINHTRANG));
+            tinhtrang = cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_MONAN_TINHTRANG));
             cursor.moveToNext();
         }
 
@@ -87,9 +87,9 @@ public class PhieuMuaDAO {
 
     public boolean CapNhatTinhTrangBan(int maban, String tinhtrang){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(CreateDatabase.TBL_PHIEUMUA_TINHTRANG,tinhtrang);
+        contentValues.put(CreateDatabase.TBL_BANAN_TINHTRANG,tinhtrang);
 
-        long ktra = database.update(CreateDatabase.TBL_PHIEUMUA,contentValues,CreateDatabase.TBL_PHIEUMUA_MABAN+ " = '"+maban+"' ",null);
+        long ktra = database.update(CreateDatabase.TBL_BANAN,contentValues,CreateDatabase.TBL_BANAN_MABAN+ " = '"+maban+"' ",null);
         if(ktra != 0){
             return true;
         }else {
@@ -99,11 +99,11 @@ public class PhieuMuaDAO {
 
     public String LayTenBanTheoMa(int maban){
         String tenban="";
-        String query = "SELECT * FROM "+CreateDatabase.TBL_PHIEUMUA + " WHERE " +CreateDatabase.TBL_PHIEUMUA_MABAN+ " = '" +maban+ "' ";
+        String query = "SELECT * FROM "+CreateDatabase.TBL_BANAN + " WHERE " +CreateDatabase.TBL_BANAN_MABAN+ " = '" +maban+ "' ";
         Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
-            tenban = cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_PHIEUMUA_TENBAN));
+            tenban = cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_BANAN_TENBAN));
             cursor.moveToNext();
         }
 

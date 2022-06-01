@@ -39,34 +39,33 @@ public class DisplayStaffFragment extends Fragment {
     List<NhanVienDTO> nhanVienDTOS;
     AdapterDisplayStaff adapterDisplayStaff;
 
-    ActivityResultLauncher<Intent> resultLauncherAdd = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    if(result.getResultCode() == Activity.RESULT_OK){
-                        Intent intent = result.getData();
-                        long ktra = intent.getLongExtra("ketquaktra",0);
-                        String chucnang = intent.getStringExtra("chucnang");
-                        if(chucnang.equals("themnv"))
-                        {
-                            if(ktra != 0){
-                                HienThiDSNV();
-                                Toast.makeText(getActivity(),"Thêm thành công",Toast.LENGTH_SHORT).show();
-                            }else {
-                                Toast.makeText(getActivity(),"Thêm thất bại",Toast.LENGTH_SHORT).show();
-                            }
-                        }else {
-                            if(ktra != 0){
-                                HienThiDSNV();
-                                Toast.makeText(getActivity(),"Sửa thành công",Toast.LENGTH_SHORT).show();
-                            }else {
-                                Toast.makeText(getActivity(),"Sửa thất bại",Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
+    ActivityResultLauncher<Intent> resultLauncherAdd = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if(result.getResultCode() == Activity.RESULT_OK){
+                Intent intent = result.getData();
+                long ktra = intent.getLongExtra("ketquaktra",0);
+                String chucnang = intent.getStringExtra("chucnang");
+                if(chucnang.equals("themnv"))
+                {
+                    if(ktra != 0){
+                        HienThiDSNV();
+                        Toast.makeText(getActivity(),"Thêm thành công",Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(getActivity(),"Thêm thất bại",Toast.LENGTH_SHORT).show();
+                    }
+                }else {
+                    if(ktra != 0){
+                        HienThiDSNV();
+                        Toast.makeText(getActivity(),"Sửa thành công",Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(getActivity(),"Sửa thất bại",Toast.LENGTH_SHORT).show();
                     }
                 }
-            });
+
+            }
+        }
+    });
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -116,7 +115,6 @@ public class DisplayStaffFragment extends Fragment {
                 }
                 break;
         }
-
         return true;
     }
 

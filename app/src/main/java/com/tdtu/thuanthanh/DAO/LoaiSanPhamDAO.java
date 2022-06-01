@@ -21,9 +21,9 @@ public class LoaiSanPhamDAO {
 
     public boolean ThemLoaiMon(LoaiSanPhamDTO loaiSanPhamDTO){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(CreateDatabase.TBL_LOAISANPHAM_TENLOAI, loaiSanPhamDTO.getTenLoai());
-        contentValues.put(CreateDatabase.TBL_LOAISANPHAM_HINHANH, loaiSanPhamDTO.getHinhAnh());
-        long ktra = database.insert(CreateDatabase.TBL_LOAISANPHAM,null,contentValues);
+        contentValues.put(CreateDatabase.TBL_LOAITHUCDON_TENLOAI, loaiSanPhamDTO.getTenLoai());
+        contentValues.put(CreateDatabase.TBL_LOAITHUCDON_HINHANH, loaiSanPhamDTO.getHinhAnh());
+        long ktra = database.insert(CreateDatabase.TBL_LOAITHUCDON,null,contentValues);
 
         if(ktra != 0){
             return true;
@@ -33,7 +33,7 @@ public class LoaiSanPhamDAO {
     }
 
     public boolean XoaLoaiMon(int maloai){
-        long ktra = database.delete(CreateDatabase.TBL_LOAISANPHAM,CreateDatabase.TBL_LOAISANPHAM_MALOAI+ " = " +maloai
+        long ktra = database.delete(CreateDatabase.TBL_LOAITHUCDON,CreateDatabase.TBL_LOAITHUCDON_MALOAI+ " = " +maloai
                 ,null);
         if(ktra !=0 ){
             return true;
@@ -44,10 +44,10 @@ public class LoaiSanPhamDAO {
 
     public boolean SuaLoaiMon(LoaiSanPhamDTO loaiSanPhamDTO, int maloai){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(CreateDatabase.TBL_LOAISANPHAM_TENLOAI, loaiSanPhamDTO.getTenLoai());
-        contentValues.put(CreateDatabase.TBL_LOAISANPHAM_HINHANH, loaiSanPhamDTO.getHinhAnh());
-        long ktra = database.update(CreateDatabase.TBL_LOAISANPHAM,contentValues
-                ,CreateDatabase.TBL_LOAISANPHAM_MALOAI+" = "+maloai,null);
+        contentValues.put(CreateDatabase.TBL_LOAITHUCDON_TENLOAI, loaiSanPhamDTO.getTenLoai());
+        contentValues.put(CreateDatabase.TBL_LOAITHUCDON_HINHANH, loaiSanPhamDTO.getHinhAnh());
+        long ktra = database.update(CreateDatabase.TBL_LOAITHUCDON,contentValues
+                ,CreateDatabase.TBL_LOAITHUCDON_MALOAI+" = "+maloai,null);
         if(ktra != 0){
             return true;
         }else {
@@ -57,14 +57,14 @@ public class LoaiSanPhamDAO {
 
     public List<LoaiSanPhamDTO> LayDSLoaiMon(){
         List<LoaiSanPhamDTO> loaiSanPhamDTOList = new ArrayList<LoaiSanPhamDTO>();
-        String query = "SELECT * FROM " +CreateDatabase.TBL_LOAISANPHAM;
+        String query = "SELECT * FROM " +CreateDatabase.TBL_LOAITHUCDON;
         Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             LoaiSanPhamDTO loaiSanPhamDTO = new LoaiSanPhamDTO();
-            loaiSanPhamDTO.setMaLoai(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_LOAISANPHAM_MALOAI)));
-            loaiSanPhamDTO.setTenLoai(cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_LOAISANPHAM_TENLOAI)));
-            loaiSanPhamDTO.setHinhAnh(cursor.getBlob(cursor.getColumnIndex(CreateDatabase.TBL_LOAISANPHAM_HINHANH)));
+            loaiSanPhamDTO.setMaLoai(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_LOAITHUCDON_MALOAI)));
+            loaiSanPhamDTO.setTenLoai(cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_LOAITHUCDON_TENLOAI)));
+            loaiSanPhamDTO.setHinhAnh(cursor.getBlob(cursor.getColumnIndex(CreateDatabase.TBL_LOAITHUCDON_HINHANH)));
             loaiSanPhamDTOList.add(loaiSanPhamDTO);
 
             cursor.moveToNext();
@@ -74,13 +74,13 @@ public class LoaiSanPhamDAO {
 
     public LoaiSanPhamDTO LayLoaiMonTheoMa(int maloai){
         LoaiSanPhamDTO loaiSanPhamDTO = new LoaiSanPhamDTO();
-        String query = "SELECT * FROM " +CreateDatabase.TBL_LOAISANPHAM+" WHERE "+CreateDatabase.TBL_LOAISANPHAM_MALOAI+" = "+maloai;
+        String query = "SELECT * FROM " +CreateDatabase.TBL_LOAITHUCDON+" WHERE "+CreateDatabase.TBL_LOAITHUCDON_MALOAI+" = "+maloai;
         Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
-            loaiSanPhamDTO.setMaLoai(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_LOAISANPHAM_MALOAI)));
-            loaiSanPhamDTO.setTenLoai(cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_LOAISANPHAM_TENLOAI)));
-            loaiSanPhamDTO.setHinhAnh(cursor.getBlob(cursor.getColumnIndex(CreateDatabase.TBL_LOAISANPHAM_HINHANH)));
+            loaiSanPhamDTO.setMaLoai(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_LOAITHUCDON_MALOAI)));
+            loaiSanPhamDTO.setTenLoai(cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_LOAITHUCDON_TENLOAI)));
+            loaiSanPhamDTO.setHinhAnh(cursor.getBlob(cursor.getColumnIndex(CreateDatabase.TBL_LOAITHUCDON_HINHANH)));
 
             cursor.moveToNext();
         }

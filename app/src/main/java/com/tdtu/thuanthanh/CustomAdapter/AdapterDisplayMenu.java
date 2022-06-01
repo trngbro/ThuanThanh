@@ -64,11 +64,11 @@ public class AdapterDisplayMenu extends BaseAdapter {
         viewholder.txt_custommenu_TenMon.setText(sanPhamDTO.getTenMon());
         viewholder.txt_custommenu_GiaTien.setText(sanPhamDTO.getGiaTien()+" VNĐ");
 
-        //hiển thị tình trạng của sản phẩm
+        //hiển thị tình trạng của món ăn
         if(sanPhamDTO.getTinhTrang().equals("true")){
-            viewholder.txt_custommenu_TinhTrang.setText("Còn sản phẩm");
+            viewholder.txt_custommenu_TinhTrang.setText("Còn món ăn");
         }else{
-            viewholder.txt_custommenu_TinhTrang.setText("Hết sản phẩm");
+            viewholder.txt_custommenu_TinhTrang.setText("Hết món ăn");
         }
 
         //lấy hình ảnh

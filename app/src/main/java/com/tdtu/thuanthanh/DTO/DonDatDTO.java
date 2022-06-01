@@ -2,8 +2,8 @@ package com.tdtu.thuanthanh.DTO;
 
 public class DonDatDTO {
 
-    int MaDonDat,MaBan ,MaNV;
-    String TinhTrang,NgayDat,TongTien;
+    int MaDonDat, MaBan, MaNV;
+    String TinhTrang, NgayDat, TongTien;
 
     public int getMaDonDat() {
         return MaDonDat;

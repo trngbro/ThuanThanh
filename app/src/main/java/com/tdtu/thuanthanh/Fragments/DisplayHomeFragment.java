@@ -31,7 +31,7 @@ import java.util.List;
 public class DisplayHomeFragment extends Fragment implements View.OnClickListener {
 
     RecyclerView rcv_displayhome_LoaiMon, rcv_displayhome_DonTrongNgay;
-    RelativeLayout layout_displayhome_ThongKe,layout_displayhome_XemBan, layout_displayhome_XemMenu, layout_displayhome_XemNV;
+    RelativeLayout layout_displayhome_ThongKe, layout_displayhome_XemBan, layout_displayhome_XemMenu, layout_displayhome_XemNV;
     TextView txt_displayhome_ViewAllCategory, txt_displayhome_ViewAllStatistic;
     LoaiSanPhamDAO loaiSanPhamDAO;
     DonDatDAO donDatDAO;
@@ -145,7 +145,6 @@ public class DisplayHomeFragment extends Fragment implements View.OnClickListene
                 navigationView.setCheckedItem(R.id.nav_category);
 
                 break;
-
         }
     }
 }

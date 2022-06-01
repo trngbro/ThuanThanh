@@ -9,9 +9,9 @@ import androidx.annotation.Nullable;
 public class CreateDatabase extends SQLiteOpenHelper {
 
     public static String TBL_NHANVIEN = "NHANVIEN";
-    public static String TBL_SANPHAM = "MON";
-    public static String TBL_LOAISANPHAM = "LOAIMON";
-    public static String TBL_PHIEUMUA = "BAN";
+    public static String TBL_MONAN = "MON";
+    public static String TBL_LOAITHUCDON = "LOAIMON";
+    public static String TBL_BANAN = "BAN";
     public static String TBL_HOADON = "DONDAT";
     public static String TBL_CHITIETDONDAT = "CHITIETDONDAT";
     public static String TBL_QUYEN = "QUYEN";
@@ -31,23 +31,23 @@ public class CreateDatabase extends SQLiteOpenHelper {
     public static String TBL_QUYEN_MAQUYEN = "MAQUYEN";
     public static String TBL_QUYEN_TENQUYEN = "TENQUYEN";
 
-    //Bảng sản phẩm
-    public static String TBL_SANPHAM_MASANPHAM = "MAMON";
-    public static String TBL_SANPHAM_TENSANPHAM = "TENMON";
-    public static String TBL_SANPHAM_GIATIEN = "GIATIEN";
-    public static String TBL_SANPHAM_TINHTRANG = "TINHTRANG";
-    public static String TBL_SANPHAM_HINHANH = "HINHANH";
-    public static String TBL_SANPHAM_MALOAI = "MALOAI";
+    //Bảng món ăn
+    public static String TBL_MONAN_MASANPHAM = "MAMON";
+    public static String TBL_MONAN_TENSANPHAM = "TENMON";
+    public static String TBL_MONAN_GIATIEN = "GIATIEN";
+    public static String TBL_MONAN_TINHTRANG = "TINHTRANG";
+    public static String TBL_MONAN_HINHANH = "HINHANH";
+    public static String TBL_MONAN_MALOAI = "MALOAI";
 
-    //Bảng loại sản phẩm
-    public static String TBL_LOAISANPHAM_MALOAI = "MALOAI";
-    public static String TBL_LOAISANPHAM_TENLOAI = "TENLOAI";
-    public static String TBL_LOAISANPHAM_HINHANH = "HINHANH";
+    //Bảng loại thực đơn
+    public static String TBL_LOAITHUCDON_MALOAI = "MALOAI";
+    public static String TBL_LOAITHUCDON_TENLOAI = "TENLOAI";
+    public static String TBL_LOAITHUCDON_HINHANH = "HINHANH";
 
-    //Bảng phiếu
-    public static String TBL_PHIEUMUA_MABAN = "MABAN";
-    public static String TBL_PHIEUMUA_TENBAN = "TENBAN";
-    public static String TBL_PHIEUMUA_TINHTRANG = "TINHTRANG";
+    //Bảng bàn ăn
+    public static String TBL_BANAN_MABAN = "MABAN";
+    public static String TBL_BANAN_TENBAN = "TENBAN";
+    public static String TBL_BANAN_TINHTRANG = "TINHTRANG";
 
     //Bảng hoá đơn (đơn đặt)
     public static String TBL_HOADON_MADONDAT = "MADONDAT";
@@ -64,7 +64,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
 
 
     public CreateDatabase(Context context) {
-        super(context, "OrderDrink", null, 1);
+        super(context, "ThuanThanh", null, 1);
     }
 
     //thực hiện tạo bảng
@@ -77,15 +77,15 @@ public class CreateDatabase extends SQLiteOpenHelper {
         String tblQUYEN = "CREATE TABLE " +TBL_QUYEN+ " ( " +TBL_QUYEN_MAQUYEN+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 +TBL_QUYEN_TENQUYEN+ " TEXT)" ;
 
-        String tblBAN = "CREATE TABLE " +TBL_PHIEUMUA+ " ( " +TBL_PHIEUMUA_MABAN+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                +TBL_PHIEUMUA_TENBAN+ " TEXT, " +TBL_PHIEUMUA_TINHTRANG+ " TEXT )";
+        String tblBAN = "CREATE TABLE " +TBL_BANAN+ " ( " +TBL_BANAN_MABAN+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                +TBL_BANAN_TENBAN+ " TEXT, " +TBL_BANAN_TINHTRANG+ " TEXT )";
 
-        String tblMON = "CREATE TABLE " +TBL_SANPHAM+ " ( " +TBL_SANPHAM_MASANPHAM+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                +TBL_SANPHAM_TENSANPHAM+ " TEXT, " +TBL_SANPHAM_GIATIEN+ " TEXT, " +TBL_SANPHAM_TINHTRANG+ " TEXT, "
-                +TBL_SANPHAM_HINHANH+ " BLOB, "+TBL_SANPHAM_MALOAI+ " INTEGER )";
+        String tblMON = "CREATE TABLE " +TBL_MONAN+ " ( " +TBL_MONAN_MASANPHAM+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                +TBL_MONAN_TENSANPHAM+ " TEXT, " +TBL_MONAN_GIATIEN+ " TEXT, " +TBL_MONAN_TINHTRANG+ " TEXT, "
+                +TBL_MONAN_HINHANH+ " BLOB, "+TBL_MONAN_MALOAI+ " INTEGER )";
 
-        String tblLOAIMON = "CREATE TABLE " +TBL_LOAISANPHAM+ " ( " +TBL_LOAISANPHAM_MALOAI+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                +TBL_LOAISANPHAM_HINHANH+ " BLOB, " +TBL_LOAISANPHAM_TENLOAI+ " TEXT)" ;
+        String tblLOAIMON = "CREATE TABLE " +TBL_LOAITHUCDON+ " ( " +TBL_LOAITHUCDON_MALOAI+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                +TBL_LOAITHUCDON_HINHANH+ " BLOB, " +TBL_LOAITHUCDON_TENLOAI+ " TEXT)" ;
 
         String tblDONDAT = "CREATE TABLE " +TBL_HOADON+ " ( " +TBL_HOADON_MADONDAT+ " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 +TBL_HOADON_MABAN+ " INTEGER, " +TBL_HOADON_MANV+ " INTEGER, " +TBL_HOADON_NGAYDAT+ " TEXT, "+TBL_HOADON_TONGTIEN+" TEXT,"
@@ -105,9 +105,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-    }
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
 
     //mở kết nối csdl
     public SQLiteDatabase open(){

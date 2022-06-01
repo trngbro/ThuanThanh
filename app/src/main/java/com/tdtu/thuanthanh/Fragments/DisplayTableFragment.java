@@ -55,28 +55,27 @@ public class DisplayTableFragment extends Fragment {
                 }
             });
 
-    ActivityResultLauncher<Intent> resultLauncherEdit = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    if(result.getResultCode() == Activity.RESULT_OK){
-                        Intent intent = result.getData();
-                        boolean ktra = intent.getBooleanExtra("ketquasua",false);
-                        if(ktra){
-                            HienThiDSBan();
-                            Toast.makeText(getActivity(),getResources().getString(R.string.edit_sucessful),Toast.LENGTH_SHORT).show();
-                        }else {
-                            Toast.makeText(getActivity(),getResources().getString(R.string.edit_failed),Toast.LENGTH_SHORT).show();
-                        }
-                    }
+    ActivityResultLauncher<Intent> resultLauncherEdit = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if(result.getResultCode() == Activity.RESULT_OK){
+                Intent intent = result.getData();
+                boolean ktra = intent.getBooleanExtra("ketquasua",false);
+                if(ktra){
+                    HienThiDSBan();
+                    Toast.makeText(getActivity(),getResources().getString(R.string.edit_sucessful),Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(getActivity(),getResources().getString(R.string.edit_failed),Toast.LENGTH_SHORT).show();
                 }
-            });
+            }
+        }
+    });
 
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.displaytable_layout,container,false);
         setHasOptionsMenu(true);
-        ((HomeActivity)getActivity()).getSupportActionBar().setTitle("Quản lý phiếu mua");
+        ((HomeActivity)getActivity()).getSupportActionBar().setTitle("Quản lý bàn ăn");
 
         GVDisplayTable = (GridView)view.findViewById(R.id.gvDisplayTable);
         phieuMuaDAO = new PhieuMuaDAO(getActivity());

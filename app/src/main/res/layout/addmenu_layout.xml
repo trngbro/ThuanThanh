@@ -141,14 +141,14 @@
                         android:id="@+id/rd_addmenu_ConMon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Còn sản phẩm" />
+                        android:text="Còn món ăn" />
 
                     <RadioButton
                         android:id="@+id/rd_addmenu_HetMon"
                         android:layout_marginLeft="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Hết sản phẩm" />
+                        android:text="Hết món ăn" />
 
                 </RadioGroup>
 

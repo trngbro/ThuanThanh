@@ -2,8 +2,8 @@ package com.tdtu.thuanthanh.DTO;
 
 public class NhanVienDTO {
 
-    String HOTENNV,TENDN,MATKHAU,EMAIL,SDT,GIOITINH,NGAYSINH;
-    int MANV,MAQUYEN;
+    String HOTENNV, TENDN, MATKHAU, EMAIL, SDT, GIOITINH, NGAYSINH;
+    int MANV, MAQUYEN;
 
     public int getMAQUYEN() {
         return MAQUYEN;

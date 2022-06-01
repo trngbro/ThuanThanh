@@ -28,7 +28,7 @@ public class EditTableActivity extends AppCompatActivity {
 
         //khởi tạo dao mở kết nối csdl
         phieuMuaDAO = new PhieuMuaDAO(this);
-        int maban = getIntent().getIntExtra("maban",0); //lấy maban từ phiếu mua đc chọn
+        int maban = getIntent().getIntExtra("maban",0); //lấy maban từ bàn ăn mua đc chọn
 
         BTN_edittable_SuaBan.setOnClickListener(new View.OnClickListener() {
             @Override

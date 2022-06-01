@@ -20,8 +20,8 @@ public class ThanhToanDAO {
 
     public List<ThanhToanDTO> LayDSMonTheoMaDon(int madondat){
         List<ThanhToanDTO> thanhToanDTOS = new ArrayList<ThanhToanDTO>();
-        String query = "SELECT * FROM "+CreateDatabase.TBL_CHITIETDONDAT+" ctdd,"+CreateDatabase.TBL_SANPHAM+" mon WHERE "
-                +"ctdd."+CreateDatabase.TBL_CHITIETDONDAT_MAMON+" = mon."+CreateDatabase.TBL_SANPHAM_MASANPHAM+" AND "
+        String query = "SELECT * FROM "+CreateDatabase.TBL_CHITIETDONDAT+" ctdd,"+CreateDatabase.TBL_MONAN+" mon WHERE "
+                +"ctdd."+CreateDatabase.TBL_CHITIETDONDAT_MAMON+" = mon."+CreateDatabase.TBL_MONAN_MASANPHAM+" AND "
                 +CreateDatabase.TBL_CHITIETDONDAT_MADONDAT+" = '"+madondat+"'";
 
         Cursor cursor = database.rawQuery(query,null);
@@ -29,9 +29,9 @@ public class ThanhToanDAO {
         while (!cursor.isAfterLast()){
             ThanhToanDTO thanhToanDTO = new ThanhToanDTO();
             thanhToanDTO.setSoLuong(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_CHITIETDONDAT_SOLUONG)));
-            thanhToanDTO.setGiaTien(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_SANPHAM_GIATIEN)));
-            thanhToanDTO.setTenMon(cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_SANPHAM_TENSANPHAM)));
-            thanhToanDTO.setHinhAnh(cursor.getBlob(cursor.getColumnIndex(CreateDatabase.TBL_SANPHAM_HINHANH)));
+            thanhToanDTO.setGiaTien(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_MONAN_GIATIEN)));
+            thanhToanDTO.setTenMon(cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_MONAN_TENSANPHAM)));
+            thanhToanDTO.setHinhAnh(cursor.getBlob(cursor.getColumnIndex(CreateDatabase.TBL_MONAN_HINHANH)));
             thanhToanDTOS.add(thanhToanDTO);
 
             cursor.moveToNext();

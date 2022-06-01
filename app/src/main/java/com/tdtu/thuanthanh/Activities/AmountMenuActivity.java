@@ -35,7 +35,7 @@ public class AmountMenuActivity extends AppCompatActivity {
         donDatDAO = new DonDatDAO(this);
         chiTietDonDatDAO = new ChiTietDonDatDAO(this);
 
-        //Lấy thông tin từ phiếu mua được chọn
+        //Lấy thông tin từ bàn ăn mua được chọn
         Intent intent = getIntent();
         maban = intent.getIntExtra("maban",0);
         mamon = intent.getIntExtra("mamon",0);
@@ -50,7 +50,7 @@ public class AmountMenuActivity extends AppCompatActivity {
                 int madondat = (int) donDatDAO.LayMaDonTheoMaBan(maban,"false");
                 boolean ktra = chiTietDonDatDAO.KiemTraMonTonTai(madondat,mamon);
                 if(ktra){
-                    //update số lượng sản phẩm đã chọn
+                    //update số lượng món ăn đã chọn
                     int sluongcu = chiTietDonDatDAO.LaySLMonTheoMaDon(madondat,mamon);
                     int sluongmoi = Integer.parseInt(TXTL_amountmenu_SoLuong.getEditText().getText().toString());
                     int tongsl = sluongcu + sluongmoi;
@@ -67,7 +67,7 @@ public class AmountMenuActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),getResources().getString(R.string.add_failed),Toast.LENGTH_SHORT).show();
                     }
                 }else {
-                    //thêm số lượng sản phẩm nếu chưa chọn sản phẩm này
+                    //thêm số lượng món ăn nếu chưa chọn món ăn này
                     int sluong = Integer.parseInt(TXTL_amountmenu_SoLuong.getEditText().getText().toString());
                     ChiTietDonDatDTO chiTietDonDatDTO = new ChiTietDonDatDTO();
                     chiTietDonDatDTO.setMaMon(mamon);
