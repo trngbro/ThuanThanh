@@ -57,7 +57,7 @@ public class AdapterDisplayCategory extends BaseAdapter {
             viewHolder.img_customcategory_HinhLoai = (ImageView)view.findViewById(R.id.img_customcategory_HinhLoai);
             viewHolder.txt_customcategory_TenLoai = (TextView)view.findViewById(R.id.txt_customcategory_TenLoai);
             view.setTag(viewHolder);
-        }else {
+        }else{
             viewHolder = (ViewHolder) view.getTag();
         }
         LoaiSanPhamDTO loaiSanPhamDTO = loaiSanPhamDTOList.get(position);

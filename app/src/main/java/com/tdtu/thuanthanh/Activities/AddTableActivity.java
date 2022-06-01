@@ -49,7 +49,7 @@ public class AddTableActivity extends AppCompatActivity {
         if(val.isEmpty()){
             TXTL_addtable_tenban.setError(getResources().getString(R.string.not_empty));
             return false;
-        }else {
+        }else{
             TXTL_addtable_tenban.setError(null);
             TXTL_addtable_tenban.setErrorEnabled(false);
             return true;

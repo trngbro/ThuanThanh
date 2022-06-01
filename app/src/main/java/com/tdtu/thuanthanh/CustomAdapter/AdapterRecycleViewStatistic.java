@@ -48,14 +48,14 @@ public class AdapterRecycleViewStatistic extends RecyclerView.Adapter<AdapterRec
         if(donDatDTO.getTongTien().equals("0"))
         {
             holder.txt_customstatistic_TongTien.setVisibility(View.INVISIBLE);
-        }else {
+        }else{
             holder.txt_customstatistic_TongTien.setVisibility(View.VISIBLE);
         }
 
         if (donDatDTO.getTinhTrang().equals("true"))
         {
             holder.txt_customstatistic_TrangThai.setText("Đã thanh toán");
-        }else {
+        }else{
             holder.txt_customstatistic_TrangThai.setText("Chưa thanh toán");
         }
         NhanVienDTO nhanVienDTO = nhanVienDAO.LayNVTheoMa(donDatDTO.getMaNV());

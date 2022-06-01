@@ -52,8 +52,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //tạo nút mở navigation
-        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar
-        ,R.string.opentoggle,R.string.closetoggle){
+        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.opentoggle,R.string.closetoggle){
             @Override
             public void onDrawerOpened(View drawerView) {    super.onDrawerOpened(drawerView); }
 
@@ -124,7 +123,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 tranDisplayMenu.commit();
                 navigationView.setCheckedItem(item.getItemId());
                 drawerLayout.closeDrawers();
-
                 break;
 
             case R.id.nav_staff:
@@ -136,10 +134,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     tranDisplayStaff.commit();
                     navigationView.setCheckedItem(item.getItemId());
                     drawerLayout.closeDrawers();
-                }else {
+                }else{
                     Toast.makeText(getApplicationContext(),"Bạn không có quyền truy cập",Toast.LENGTH_SHORT).show();
                 }
-
                 break;
 
             case R.id.nav_logout:
@@ -148,8 +145,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
         }
-
         return false;
     }
-
 }

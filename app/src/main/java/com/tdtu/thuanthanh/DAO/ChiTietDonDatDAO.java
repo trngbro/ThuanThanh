@@ -22,7 +22,7 @@ public class ChiTietDonDatDAO {
         Cursor cursor = database.rawQuery(query,null);
         if(cursor.getCount() != 0){
             return true;
-        }else {
+        }else{
             return false;
         }
     }
@@ -49,7 +49,7 @@ public class ChiTietDonDatDAO {
                 +chiTietDonDatDTO.getMaMon(),null);
         if(ktra !=0){
             return true;
-        }else {
+        }else{
             return false;
         }
     }
@@ -63,7 +63,7 @@ public class ChiTietDonDatDAO {
         long ktra = database.insert(CreateDatabase.TBL_CHITIETDONDAT,null,contentValues);
         if(ktra !=0){
             return true;
-        }else {
+        }else{
             return false;
         }
     }

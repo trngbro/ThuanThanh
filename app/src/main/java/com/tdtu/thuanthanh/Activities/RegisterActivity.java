@@ -63,7 +63,6 @@ public class RegisterActivity extends AppCompatActivity {
                 byBundleNextSignupScreen(hoTen,tenDN,eMail,sDT,matKhau);
             }
         });
-
     }
 
     //Hàm quay về màn hình trước
@@ -76,14 +75,13 @@ public class RegisterActivity extends AppCompatActivity {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(RegisterActivity.this,pairs);
             startActivity(intent,options.toBundle());
-        }else {
+        }else{
             startActivity(intent);
         }
     }
 
     //truyền dữ liệu qua trang đk thứ 2 bằng bundle
     public void byBundleNextSignupScreen(String hoTen, String tenDN, String eMail, String sDT, String matKhau){
-
         Intent intent = new Intent(getApplicationContext(),Register2ndActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString("hoten",hoTen);
@@ -92,7 +90,6 @@ public class RegisterActivity extends AppCompatActivity {
         bundle.putString("sdt",sDT);
         bundle.putString("matkhau",matKhau);
         intent.putExtra(BUNDLE,bundle);
-
         startActivity(intent);
         overridePendingTransition(anim.slide_in_right, anim.slide_out_left);
     }
@@ -104,7 +101,7 @@ public class RegisterActivity extends AppCompatActivity {
         if(val.isEmpty()){
             TXTL_signup_HoVaTen.setError(getResources().getString(string.not_empty));
             return false;
-        }else {
+        }else{
             TXTL_signup_HoVaTen.setError(null);
             TXTL_signup_HoVaTen.setErrorEnabled(false);
             return true;
@@ -152,7 +149,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     private boolean validatePhone(){
         String val = TXTL_signup_SDT.getEditText().getText().toString().trim();
-
 
         if(val.isEmpty()){
             TXTL_signup_SDT.setError(getResources().getString(string.not_empty));

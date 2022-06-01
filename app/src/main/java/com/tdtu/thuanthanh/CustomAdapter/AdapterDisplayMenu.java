@@ -57,7 +57,7 @@ public class AdapterDisplayMenu extends BaseAdapter {
             viewholder.txt_custommenu_TinhTrang = (TextView)view.findViewById(R.id.txt_custommenu_TinhTrang);
             viewholder.txt_custommenu_GiaTien = (TextView)view.findViewById(R.id.txt_custommenu_GiaTien);
             view.setTag(viewholder);
-        }else {
+        }else{
             viewholder = (Viewholder) view.getTag();
         }
         SanPhamDTO sanPhamDTO = sanPhamDTOList.get(position);
@@ -76,7 +76,7 @@ public class AdapterDisplayMenu extends BaseAdapter {
             byte[] menuimage = sanPhamDTO.getHinhAnh();
             Bitmap bitmap = BitmapFactory.decodeByteArray(menuimage,0,menuimage.length);
             viewholder.img_custommenu_HinhMon.setImageBitmap(bitmap);
-        }else {
+        }else{
             viewholder.img_custommenu_HinhMon.setImageResource(R.drawable.pic_item);
         }
 

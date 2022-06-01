@@ -30,7 +30,7 @@ public class SanPhamDAO {
 
         if(ktra !=0){
             return true;
-        }else {
+        }else{
             return false;
         }
     }
@@ -40,7 +40,7 @@ public class SanPhamDAO {
                 ,null);
         if(ktra !=0 ){
             return true;
-        }else {
+        }else{
             return false;
         }
     }
@@ -57,7 +57,7 @@ public class SanPhamDAO {
                 CreateDatabase.TBL_MONAN_MASANPHAM+" = "+mamon,null);
         if(ktra !=0){
             return true;
-        }else {
+        }else{
             return false;
         }
     }

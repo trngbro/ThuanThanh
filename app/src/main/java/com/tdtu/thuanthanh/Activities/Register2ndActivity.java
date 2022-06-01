@@ -84,7 +84,7 @@ public class Register2ndActivity extends AppCompatActivity {
                     quyenDAO.ThemQuyen("Quản lý");
                     quyenDAO.ThemQuyen("Nhân viên");
                     nhanVienDTO.setMAQUYEN(1);
-                }else {
+                }else{
                     nhanVienDTO.setMAQUYEN(2);
                 }
 
@@ -98,7 +98,6 @@ public class Register2ndActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     //Hàm quay về màn hình trước
@@ -126,7 +125,7 @@ public class Register2ndActivity extends AppCompatActivity {
         if(RG_signup_GioiTinh.getCheckedRadioButtonId() == -1){
             Toast.makeText(this,"Hãy chọn giới tính",Toast.LENGTH_SHORT).show();
             return false;
-        }else {
+        }else{
             return true;
         }
     }
@@ -139,7 +138,7 @@ public class Register2ndActivity extends AppCompatActivity {
         if(isAgeValid < 10){
             Toast.makeText(this,"Bạn không đủ tuổi đăng ký!",Toast.LENGTH_SHORT).show();
             return false;
-        }else {
+        }else{
             return true;
         }
     }

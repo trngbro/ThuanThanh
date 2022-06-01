@@ -19,8 +19,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     }
     //chuyển sang trang đăng nhập
-    public void callLoginFromWel(View view)
-    {
+    public void callLoginFromWel(View view) {
         Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
 
         Pair[] pairs = new Pair[1];
@@ -35,8 +34,7 @@ public class WelcomeActivity extends AppCompatActivity {
         }
     }
     // chuyển sang trang đăng ký
-    public void callSignUpFromWel(View view)
-    {
+    public void callSignUpFromWel(View view) {
         Intent intent = new Intent(getApplicationContext(),RegisterActivity.class);
         Pair[] pairs = new Pair[1];
         pairs[0] = new Pair<View, String>(findViewById(R.id.btn_signup),"transition_signup");

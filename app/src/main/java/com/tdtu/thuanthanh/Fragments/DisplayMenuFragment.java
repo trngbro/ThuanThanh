@@ -53,14 +53,14 @@ public class DisplayMenuFragment extends Fragment {
                     if(ktra){
                         HienThiDSMon();
                         Toast.makeText(getActivity(),"Thêm thành công",Toast.LENGTH_SHORT).show();
-                    }else {
+                    }else{
                         Toast.makeText(getActivity(),"Thêm thất bại",Toast.LENGTH_SHORT).show();
                     }
-                }else {
+                }else{
                     if(ktra){
                         HienThiDSMon();
                         Toast.makeText(getActivity(),"Sửa thành công",Toast.LENGTH_SHORT).show();
-                    }else {
+                    }else{
                         Toast.makeText(getActivity(),"Sửa thất bại",Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -96,7 +96,7 @@ public class DisplayMenuFragment extends Fragment {
                             iAmount.putExtra("maban",maban);
                             iAmount.putExtra("mamon", sanPhamDTOList.get(position).getMaMon());
                             startActivity(iAmount);
-                        }else {
+                        }else{
                             Toast.makeText(getActivity(),"món ăn đã hết, không thể thêm", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -148,7 +148,7 @@ public class DisplayMenuFragment extends Fragment {
                     HienThiDSMon();
                     Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.delete_sucessful)
                             ,Toast.LENGTH_SHORT).show();
-                }else {
+                }else{
                     Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.delete_failed)
                             ,Toast.LENGTH_SHORT).show();
                 }

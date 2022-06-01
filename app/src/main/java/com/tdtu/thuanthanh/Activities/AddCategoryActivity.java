@@ -41,22 +41,21 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
     Bitmap bitmapold;   //Bitmap dạng ảnh theo ma trận các pixel
 
     //dùng result launcher do activityforresult ko dùng đc nữa
-    ActivityResultLauncher<Intent> resultLauncherOpenIMG = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    if(result.getResultCode() == Activity.RESULT_OK && result.getData() != null){
-                        Uri uri = result.getData().getData();
-                        try{
-                            InputStream inputStream = getContentResolver().openInputStream(uri);
-                            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                            IMG_addcategory_ThemHinh.setImageBitmap(bitmap);
-                        }catch (FileNotFoundException e){
-                            e.printStackTrace();
-                        }
-                    }
+    ActivityResultLauncher<Intent> resultLauncherOpenIMG = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if(result.getResultCode() == Activity.RESULT_OK && result.getData() != null){
+                Uri uri = result.getData().getData();
+                try{
+                    InputStream inputStream = getContentResolver().openInputStream(uri);
+                    Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                    IMG_addcategory_ThemHinh.setImageBitmap(bitmap);
+                }catch (FileNotFoundException e){
+                    e.printStackTrace();
                 }
-            });
+            }
+        }
+    });
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -97,7 +96,7 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
         IMG_addcategory_back.setOnClickListener(this);
         IMG_addcategory_ThemHinh.setOnClickListener(this);
         BTN_addcategory_TaoLoai.setOnClickListener(this);
-        }
+    }
 
     @SuppressLint("NonConstantResourceId")
     @Override
@@ -130,7 +129,7 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
                 if(maloai != 0){
                     ktra = loaiSanPhamDAO.SuaLoaiMon(loaiSanPhamDTO,maloai);
                     chucnang = "sualoai";
-                }else {
+                }else{
                     ktra = loaiSanPhamDAO.ThemLoaiMon(loaiSanPhamDTO);
                     chucnang = "themloai";
                 }
@@ -142,7 +141,6 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
                 setResult(RESULT_OK,intent);
                 finish();
                 break;
-
         }
     }
 
@@ -162,7 +160,7 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
         if(bitmap == bitmapold){
             Toast.makeText(getApplicationContext(),"Xin chọn hình ảnh",Toast.LENGTH_SHORT).show();
             return false;
-        }else {
+        }else{
             return true;
         }
     }
@@ -172,7 +170,7 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
         if(val.isEmpty()){
             TXTL_addcategory_TenLoai.setError(getResources().getString(R.string.not_empty));
             return false;
-        }else {
+        }else{
             TXTL_addcategory_TenLoai.setError(null);
             TXTL_addcategory_TenLoai.setErrorEnabled(false);
             return true;

@@ -37,7 +37,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
     RelativeLayout layout_trangthaimon;
     ImageView IMG_addmenu_ThemHinh, IMG_addmenu_back;
     TextView TXT_addmenu_title;
-    TextInputLayout TXTL_addmenu_TenMon,TXTL_addmenu_GiaTien,TXTL_addmenu_LoaiMon;
+    TextInputLayout TXTL_addmenu_TenMon, TXTL_addmenu_GiaTien, TXTL_addmenu_LoaiMon;
     RadioGroup RG_addmenu_TinhTrang;
     RadioButton RD_addmenu_ConMon, RD_addmenu_HetMon;
     SanPhamDAO sanPhamDAO;
@@ -46,24 +46,22 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
     int maloai;
     int mamon = 0;
 
-    ActivityResultLauncher<Intent> resultLauncherOpenIMG = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    if(result.getResultCode() == Activity.RESULT_OK && result.getData() != null){
-                        Uri uri = result.getData().getData();
-                        try{
-                            InputStream inputStream = getContentResolver().openInputStream(uri);
-                            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                            IMG_addmenu_ThemHinh.setImageBitmap(bitmap);
-                        }catch (FileNotFoundException e){
-                            e.printStackTrace();
-                        }
-                    }
+    ActivityResultLauncher<Intent> resultLauncherOpenIMG = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if(result.getResultCode() == Activity.RESULT_OK && result.getData() != null){
+                Uri uri = result.getData().getData();
+                try{
+                    InputStream inputStream = getContentResolver().openInputStream(uri);
+                    Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                    IMG_addmenu_ThemHinh.setImageBitmap(bitmap);
+                }catch (FileNotFoundException e){
+                    e.printStackTrace();
                 }
-            });
-
-
+            }
+        }
+    });
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,7 +108,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
             String tinhtrang = sanPhamDTO.getTinhTrang();
             if(tinhtrang.equals("true")){
                 RD_addmenu_ConMon.setChecked(true);
-            }else {
+            }else{
                 RD_addmenu_HetMon.setChecked(true);
             }
 
@@ -164,7 +162,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
                 if(mamon!= 0){
                     ktra = sanPhamDAO.SuaMon(sanPhamDTO,mamon);
                     chucnang = "suamon";
-                }else {
+                }else{
                     ktra = sanPhamDAO.ThemMon(sanPhamDTO);
                     chucnang = "themmon";
                 }
@@ -175,7 +173,6 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
                 intent.putExtra("chucnang",chucnang);
                 setResult(RESULT_OK,intent);
                 finish();
-
                 break;
         }
     }
@@ -197,7 +194,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         if(bitmap == bitmapold){
             Toast.makeText(getApplicationContext(),"Xin chọn hình ảnh",Toast.LENGTH_SHORT).show();
             return false;
-        }else {
+        }else{
             return true;
         }
     }
@@ -207,7 +204,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         if(val.isEmpty()){
             TXTL_addmenu_TenMon.setError(getResources().getString(R.string.not_empty));
             return false;
-        }else {
+        }else{
             TXTL_addmenu_TenMon.setError(null);
             TXTL_addmenu_TenMon.setErrorEnabled(false);
             return true;
@@ -222,12 +219,11 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         }else if(!val.matches(("\\d+(?:\\.\\d+)?"))){
             TXTL_addmenu_GiaTien.setError("Giá tiền không hợp lệ");
             return false;
-        }else {
+        }else{
             TXTL_addmenu_GiaTien.setError(null);
             TXTL_addmenu_GiaTien.setErrorEnabled(false);
             return true;
         }
     }
     //endregion
-
 }

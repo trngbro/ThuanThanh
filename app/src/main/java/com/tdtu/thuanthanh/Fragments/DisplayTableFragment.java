@@ -48,7 +48,7 @@ public class DisplayTableFragment extends Fragment {
                         if(ktra){
                             HienThiDSBan();
                             Toast.makeText(getActivity(),"Thêm thành công",Toast.LENGTH_SHORT).show();
-                        }else {
+                        }else{
                             Toast.makeText(getActivity(),"Thêm thất bại",Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -64,7 +64,7 @@ public class DisplayTableFragment extends Fragment {
                 if(ktra){
                     HienThiDSBan();
                     Toast.makeText(getActivity(),getResources().getString(R.string.edit_sucessful),Toast.LENGTH_SHORT).show();
-                }else {
+                }else{
                     Toast.makeText(getActivity(),getResources().getString(R.string.edit_failed),Toast.LENGTH_SHORT).show();
                 }
             }
@@ -112,7 +112,7 @@ public class DisplayTableFragment extends Fragment {
                 if(ktraxoa){
                     HienThiDSBan();
                     Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.delete_sucessful),Toast.LENGTH_SHORT).show();
-                }else {
+                }else{
                     Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.delete_failed),Toast.LENGTH_SHORT).show();
                 }
                 break;

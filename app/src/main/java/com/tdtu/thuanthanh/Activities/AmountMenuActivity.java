@@ -63,10 +63,10 @@ public class AmountMenuActivity extends AppCompatActivity {
                     boolean ktracapnhat = chiTietDonDatDAO.CapNhatSL(chiTietDonDatDTO);
                     if(ktracapnhat){
                         Toast.makeText(getApplicationContext(),getResources().getString(R.string.add_sucessful),Toast.LENGTH_SHORT).show();
-                    }else {
+                    }else{
                         Toast.makeText(getApplicationContext(),getResources().getString(R.string.add_failed),Toast.LENGTH_SHORT).show();
                     }
-                }else {
+                }else{
                     //thêm số lượng món ăn nếu chưa chọn món ăn này
                     int sluong = Integer.parseInt(TXTL_amountmenu_SoLuong.getEditText().getText().toString());
                     ChiTietDonDatDTO chiTietDonDatDTO = new ChiTietDonDatDTO();
@@ -77,7 +77,7 @@ public class AmountMenuActivity extends AppCompatActivity {
                     boolean ktracapnhat = chiTietDonDatDAO.ThemChiTietDonDat(chiTietDonDatDTO);
                     if(ktracapnhat){
                         Toast.makeText(getApplicationContext(),getResources().getString(R.string.add_sucessful),Toast.LENGTH_SHORT).show();
-                    }else {
+                    }else{
                         Toast.makeText(getApplicationContext(),getResources().getString(R.string.add_failed),Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -94,7 +94,7 @@ public class AmountMenuActivity extends AppCompatActivity {
         }else if(!val.matches(("\\d+(?:\\.\\d+)?"))){
             TXTL_amountmenu_SoLuong.setError("Số lượng không hợp lệ");
             return false;
-        }else {
+        }else{
             TXTL_amountmenu_SoLuong.setError(null);
             TXTL_amountmenu_SoLuong.setErrorEnabled(false);
             return true;

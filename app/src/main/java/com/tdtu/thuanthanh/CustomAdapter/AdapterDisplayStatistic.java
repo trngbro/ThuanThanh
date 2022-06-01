@@ -62,7 +62,7 @@ public class AdapterDisplayStatistic extends BaseAdapter {
             viewHolder.txt_customstatistic_TrangThai = (TextView)view.findViewById(R.id.txt_customstatistic_TrangThai);
             viewHolder.txt_customstatistic_BanDat = (TextView)view.findViewById(R.id.txt_customstatistic_BanDat);
             view.setTag(viewHolder);
-        }else {
+        }else{
             viewHolder = (ViewHolder) view.getTag();
         }
         DonDatDTO donDatDTO = donDatDTOS.get(position);
@@ -73,7 +73,7 @@ public class AdapterDisplayStatistic extends BaseAdapter {
         if (donDatDTO.getTinhTrang().equals("true"))
         {
             viewHolder.txt_customstatistic_TrangThai.setText("Đã thanh toán");
-        }else {
+        }else{
             viewHolder.txt_customstatistic_TrangThai.setText("Chưa thanh toán");
         }
         NhanVienDTO nhanVienDTO = nhanVienDAO.LayNVTheoMa(donDatDTO.getMaNV());

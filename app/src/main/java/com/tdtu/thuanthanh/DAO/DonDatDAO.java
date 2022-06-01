@@ -105,7 +105,7 @@ public class DonDatDAO {
                 " = '"+maban+"'",null);
         if(ktra !=0){
             return true;
-        }else {
+        }else{
             return false;
         }
     }

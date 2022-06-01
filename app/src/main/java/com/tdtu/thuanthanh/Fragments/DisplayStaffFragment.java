@@ -51,14 +51,14 @@ public class DisplayStaffFragment extends Fragment {
                     if(ktra != 0){
                         HienThiDSNV();
                         Toast.makeText(getActivity(),"Thêm thành công",Toast.LENGTH_SHORT).show();
-                    }else {
+                    }else{
                         Toast.makeText(getActivity(),"Thêm thất bại",Toast.LENGTH_SHORT).show();
                     }
-                }else {
+                }else{
                     if(ktra != 0){
                         HienThiDSNV();
                         Toast.makeText(getActivity(),"Sửa thành công",Toast.LENGTH_SHORT).show();
-                    }else {
+                    }else{
                         Toast.makeText(getActivity(),"Sửa thất bại",Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -109,7 +109,7 @@ public class DisplayStaffFragment extends Fragment {
                     HienThiDSNV();
                     Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.delete_sucessful)
                             ,Toast.LENGTH_SHORT).show();
-                }else {
+                }else{
                     Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.delete_failed)
                             ,Toast.LENGTH_SHORT).show();
                 }

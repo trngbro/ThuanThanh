@@ -57,12 +57,11 @@ public class LoginActivity extends AppCompatActivity {
                     intent.putExtra("tendn",TXTL_login_TenDN.getEditText().getText().toString());
                     intent.putExtra("manv",ktra);
                     startActivity(intent);
-                }else {
+                }else{
                     Toast.makeText(getApplicationContext(),"Đăng nhập thất bại!",Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
     }
 
     //Hàm quay lại màn hình chính
@@ -97,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
         if(val.isEmpty()){
             TXTL_login_TenDN.setError(getResources().getString(R.string.not_empty));
             return false;
-        }else {
+        }else{
             TXTL_login_TenDN.setError(null);
             TXTL_login_TenDN.setErrorEnabled(false);
             return true;

@@ -27,7 +27,7 @@ public class PhieuMuaDAO {
         long ktra = database.insert(CreateDatabase.TBL_BANAN,null,contentValues);
         if(ktra != 0){
             return true;
-        }else {
+        }else{
             return false;
         }
     }
@@ -37,7 +37,7 @@ public class PhieuMuaDAO {
         long ktra =database.delete(CreateDatabase.TBL_BANAN,CreateDatabase.TBL_BANAN_MABAN+" = "+maban,null);
         if(ktra != 0){
             return true;
-        }else {
+        }else{
             return false;
         }
     }
@@ -50,7 +50,7 @@ public class PhieuMuaDAO {
         long ktra = database.update(CreateDatabase.TBL_BANAN,contentValues,CreateDatabase.TBL_BANAN_MABAN+ " = '"+maban+"' ",null);
         if(ktra != 0){
             return true;
-        }else {
+        }else{
             return false;
         }
     }
@@ -92,7 +92,7 @@ public class PhieuMuaDAO {
         long ktra = database.update(CreateDatabase.TBL_BANAN,contentValues,CreateDatabase.TBL_BANAN_MABAN+ " = '"+maban+"' ",null);
         if(ktra != 0){
             return true;
-        }else {
+        }else{
             return false;
         }
     }

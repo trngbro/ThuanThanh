@@ -52,14 +52,14 @@ public class DisplayCategoryFragment extends Fragment {
                     if(ktra){
                         HienThiDSLoai();
                         Toast.makeText(getActivity(),"Thêm thành công",Toast.LENGTH_SHORT).show();
-                    }else {
+                    }else{
                         Toast.makeText(getActivity(),"Thêm thất bại",Toast.LENGTH_SHORT).show();
                     }
-                }else {
+                }else{
                     if(ktra){
                         HienThiDSLoai();
                         Toast.makeText(getActivity(),"Sủa thành công",Toast.LENGTH_SHORT).show();
-                    }else {
+                    }else{
                         Toast.makeText(getActivity(),"sửa thất bại",Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -138,7 +138,7 @@ public class DisplayCategoryFragment extends Fragment {
                     HienThiDSLoai();
                     Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.delete_sucessful)
                             ,Toast.LENGTH_SHORT).show();
-                }else {
+                }else{
                     Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.delete_failed)
                             ,Toast.LENGTH_SHORT).show();
                 }

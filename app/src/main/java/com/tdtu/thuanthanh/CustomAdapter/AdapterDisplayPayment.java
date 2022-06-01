@@ -58,7 +58,7 @@ public class AdapterDisplayPayment extends BaseAdapter {
             viewHolder.txt_custompayment_GiaTien = (TextView)view.findViewById(R.id.txt_custompayment_GiaTien);
 
             view.setTag(viewHolder);
-        }else {
+        }else{
             viewHolder = (ViewHolder)view.getTag();
         }
         ThanhToanDTO thanhToanDTO = thanhToanDTOList.get(position);

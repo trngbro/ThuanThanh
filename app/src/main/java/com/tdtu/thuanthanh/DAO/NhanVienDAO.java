@@ -68,7 +68,7 @@ public class NhanVienDAO {
         Cursor cursor =database.rawQuery(query,null);
         if(cursor.getCount() != 0){
             return true;
-        }else {
+        }else{
             return false;
         }
     }
@@ -102,7 +102,7 @@ public class NhanVienDAO {
                 ,null);
         if(ktra !=0 ){
             return true;
-        }else {
+        }else{
             return false;
         }
     }

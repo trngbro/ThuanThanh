@@ -60,7 +60,7 @@ public class AdapterDisplayStaff extends BaseAdapter {
             viewHolder.txt_customstaff_Email = (TextView)view.findViewById(R.id.txt_customstaff_Email);
 
             view.setTag(viewHolder);
-        }else {
+        }else{
             viewHolder = (ViewHolder) view.getTag();
         }
         NhanVienDTO nhanVienDTO = nhanVienDTOS.get(position);

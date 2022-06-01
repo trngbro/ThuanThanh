@@ -27,7 +27,7 @@ public class LoaiSanPhamDAO {
 
         if(ktra != 0){
             return true;
-        }else {
+        }else{
             return false;
         }
     }
@@ -37,7 +37,7 @@ public class LoaiSanPhamDAO {
                 ,null);
         if(ktra !=0 ){
             return true;
-        }else {
+        }else{
             return false;
         }
     }
@@ -50,7 +50,7 @@ public class LoaiSanPhamDAO {
                 ,CreateDatabase.TBL_LOAITHUCDON_MALOAI+" = "+maloai,null);
         if(ktra != 0){
             return true;
-        }else {
+        }else{
             return false;
         }
     }

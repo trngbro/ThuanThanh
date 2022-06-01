@@ -33,12 +33,12 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
     ImageView IMG_addstaff_back;
     TextView TXT_addstaff_title;
     TextInputLayout TXTL_addstaff_HoVaTen, TXTL_addstaff_TenDN, TXTL_addstaff_Email, TXTL_addstaff_SDT, TXTL_addstaff_MatKhau;
-    RadioGroup RG_addstaff_GioiTinh,rg_addstaff_Quyen;
-    RadioButton RD_addstaff_Nam,RD_addstaff_Nu,RD_addstaff_Khac,rd_addstaff_QuanLy,rd_addstaff_NhanVien;
+    RadioGroup RG_addstaff_GioiTinh, rg_addstaff_Quyen;
+    RadioButton RD_addstaff_Nam, RD_addstaff_Nu, RD_addstaff_Khac, rd_addstaff_QuanLy, rd_addstaff_NhanVien;
     DatePicker DT_addstaff_NgaySinh;
     Button BTN_addstaff_ThemNV;
     NhanVienDAO nhanVienDAO;
-    String hoTen,tenDN,eMail,sDT,matKhau,gioiTinh,ngaySinh;
+    String hoTen, tenDN, eMail, sDT, matKhau, gioiTinh, ngaySinh;
     int manv = 0,quyen = 0;
     long ktra = 0;
 
@@ -88,13 +88,13 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
                 RD_addstaff_Nam.setChecked(true);
             }else if (gioitinh.equals("Nữ")){
                 RD_addstaff_Nu.setChecked(true);
-            }else {
+            }else{
                 RD_addstaff_Khac.setChecked(true);
             }
 
             if(nhanVienDTO.getMAQUYEN() == 1){
                 rd_addstaff_QuanLy.setChecked(true);
-            }else {
+            }else{
                 rd_addstaff_NhanVien.setChecked(true);
             }
 
@@ -157,7 +157,7 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
                 if(manv != 0){
                     ktra = nhanVienDAO.SuaNhanVien(nhanVienDTO,manv);
                     chucnang = "sua";
-                }else {
+                }else{
                     ktra = nhanVienDAO.ThemNhanVien(nhanVienDTO);
                     chucnang = "themnv";
                 }
@@ -183,7 +183,7 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
         if(val.isEmpty()){
             TXTL_addstaff_HoVaTen.setError(getResources().getString(R.string.not_empty));
             return false;
-        }else {
+        }else{
             TXTL_addstaff_HoVaTen.setError(null);
             TXTL_addstaff_HoVaTen.setErrorEnabled(false);
             return true;
@@ -268,7 +268,7 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
         if(RG_addstaff_GioiTinh.getCheckedRadioButtonId() == -1){
             Toast.makeText(this,"Hãy chọn giới tính",Toast.LENGTH_SHORT).show();
             return false;
-        }else {
+        }else{
             return true;
         }
     }
@@ -277,7 +277,7 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
         if(rg_addstaff_Quyen.getCheckedRadioButtonId() == -1){
             Toast.makeText(this,"Hãy chọn quyền",Toast.LENGTH_SHORT).show();
             return false;
-        }else {
+        }else{
             return true;
         }
     }
@@ -290,10 +290,9 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
         if(isAgeValid < 10){
             Toast.makeText(this,"Bạn không đủ tuổi đăng ký!",Toast.LENGTH_SHORT).show();
             return false;
-        }else {
+        }else{
             return true;
         }
     }
     //endregion
-
 }

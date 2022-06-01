@@ -77,12 +77,12 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
             viewHolder.txtTenBanAn = (TextView)view.findViewById(R.id.txt_customtable_TenBanAn);
 
             view.setTag(viewHolder);
-        }else {
+        }else{
             viewHolder = (ViewHolder) view.getTag();
         }
         if(phieuMuaDTOList.get(position).isDuocChon()){
             HienThiButton();
-        }else {
+        }else{
             AnButton();
         }
 
@@ -92,7 +92,7 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
         //đổi hình theo tình trạng
         if(kttinhtrang.equals("true")){
             viewHolder.imgBanAn.setImageResource(R.drawable.ic_baseline_radio_button_unchecked);
-        }else {
+        }else{
             viewHolder.imgBanAn.setImageResource(R.drawable.ic_baseline_person_24);
         }
 
