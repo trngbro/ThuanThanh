@@ -34,7 +34,6 @@ public class AdapterRecycleViewStatistic extends RecyclerView.Adapter<AdapterRec
         phieuMuaDAO = new PhieuMuaDAO(context);
     }
 
-
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(layout,parent,false);

@@ -87,6 +87,5 @@ public class AdapterDisplayMenu extends BaseAdapter {
     public class Viewholder{
         ImageView img_custommenu_HinhMon;
         TextView txt_custommenu_TenMon, txt_custommenu_GiaTien,txt_custommenu_TinhTrang;
-
     }
 }
