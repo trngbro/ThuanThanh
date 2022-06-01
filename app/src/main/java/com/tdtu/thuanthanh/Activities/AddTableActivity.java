@@ -31,7 +31,7 @@ public class AddTableActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String sTenBanAn = TXTL_addtable_tenban.getEditText().getText().toString();
-                if(sTenBanAn != null || sTenBanAn.equals("")){
+                if(validateName()){
                     boolean ktra = phieuMuaDAO.ThemBanAn(sTenBanAn);
                     //trả về result cho displaytable
                     Intent intent = new Intent();
