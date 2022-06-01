@@ -133,10 +133,9 @@ public class Register2ndActivity extends AppCompatActivity {
     private boolean validateAge(){
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         int userAge = DT_signup_NgaySinh.getYear();
-        int isAgeValid = currentYear - userAge;
 
-        if(isAgeValid < 10){
-            Toast.makeText(this,"Bạn không đủ tuổi đăng ký!",Toast.LENGTH_SHORT).show();
+        if(userAge >= currentYear){
+            Toast.makeText(this,"Tuổi không hợp lệ!",Toast.LENGTH_SHORT).show();
             return false;
         }else{
             return true;
