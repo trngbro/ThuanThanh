@@ -94,6 +94,9 @@ public class AmountMenuActivity extends AppCompatActivity {
         }else if(!val.matches(("\\d+(?:\\.\\d+)?"))){
             TXTL_amountmenu_SoLuong.setError("Số lượng không hợp lệ");
             return false;
+        }else if(Integer.parseInt(val)==0) {
+            TXTL_amountmenu_SoLuong.setError("Số lượng phải lớn hơn 0");
+            return false;
         }else{
             TXTL_amountmenu_SoLuong.setError(null);
             TXTL_amountmenu_SoLuong.setErrorEnabled(false);
