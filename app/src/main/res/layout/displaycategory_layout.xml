@@ -4,17 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Danh sách thực đơn"
-        android:textSize="25sp"
-        android:fontFamily="@font/muli_black"
-        android:padding="10dp"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
-        android:layout_gravity="center" />
-
     <GridView
         android:id="@+id/gvCategory"
         android:layout_width="match_parent"
