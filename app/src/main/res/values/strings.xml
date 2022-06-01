@@ -1,12 +1,11 @@
 <resources>
     <string name="app_name">Thuận Thành</string>
     <string name="brand_name">Thuận Thành</string>
-    <string name="slogan">Cơm Việt Nam thuẩn tuý</string>
+    <string name="slogan">Cơm Việt Nam thuần tuý</string>
     <string name="login">Đăng nhập</string>
     <string name="logintittle">Đăng nhập</string>
     <string name="register">Đăng ký</string>
     <string name="function">NHÀ HÀNG CƠM NIÊU</string>
-    <string name="howwork">Hướng dẫn sử dụng</string>
     <string name="create_acc">Tạo tài khoản</string>
     <string name="enter_fullname">Họ và tên</string>
     <string name="enter_username">Tên tài khoản</string>
