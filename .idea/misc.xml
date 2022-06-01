@@ -3,35 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/drawable/circle_drawable.xml" value="0.1585" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/drawable/corner_border_black.xml" value="0.1585" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/drawable/ic_baseline_attach_money_24.xml" value="0.1585" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/drawable/ic_baseline_create_pencil.xml" value="0.1585" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.1585" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1895" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/drawable/ic_baseline_local_phone_24.xml" value="0.1895" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.1585" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/drawable/round_corner_categorytext.xml" value="0.1585" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/drawable/round_corner_menutext.xml" value="0.1585" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/drawable/round_corner_textview.xml" value="0.1585" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/drawable/tamsport_background.xml" value="0.1585" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/addcategory_layout.xml" value="0.21603260869565216" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/addmenu_layout.xml" value="0.21603260869565216" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/addstaff_layout.xml" value="0.21603260869565216" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/addtable_layout.xml" value="0.21603260869565216" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/amount_menu_layout.xml" value="0.21603260869565216" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/custom_layout_displaycategory.xml" value="0.10989583333333333" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/custom_layout_displaymenu.xml" value="0.21603260869565216" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/custom_layout_displaytable.xml" value="0.21603260869565216" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/custom_layout_paymentmenu.xml" value="0.21603260869565216" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/detailstatistic_layout.xml" value="0.21603260869565216" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/displaycategory_layout.xml" value="0.21603260869565216" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/displayhome_layout.xml" value="0.21603260869565216" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/displaymenu_layout.xml" value="0.21603260869565216" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/displaytable_layout.xml" value="0.21603260869565216" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/menu_navigation_header.xml" value="0.21603260869565216" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/register2nd_layout.xml" value="0.21603260869565216" />
-        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/welcome_layout.xml" value="0.21603260869565216" />
         <entry key="..\:/Users/trngx/AndroidStudioProjects/FinalTamSport/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.1" />
         <entry key="..\:/Users/trngx/AndroidStudioProjects/FinalTamSport/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1" />
         <entry key="..\:/Users/trngx/AndroidStudioProjects/FinalTamSport/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.1" />
@@ -196,7 +167,7 @@
         <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/menu_navigation_header.xml" value="0.25" />
         <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/payment_layout.xml" value="0.25" />
         <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/register2nd_layout.xml" value="0.25" />
-        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/register_layout.xml" value="0.25" />
+        <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/register_layout.xml" value="0.23043478260869565" />
         <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/welcome_layout.xml" value="0.1" />
         <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/menu/main_menu_navigation.xml" value="0.25" />
         <entry key="..\:/Users/trngx/AndroidStudioProjects/ThuanThanh/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.121" />

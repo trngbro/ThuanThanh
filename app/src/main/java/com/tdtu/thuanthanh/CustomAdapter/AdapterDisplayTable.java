@@ -93,7 +93,7 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
         if(kttinhtrang.equals("true")){
             viewHolder.imgBanAn.setImageResource(R.drawable.ic_baseline_radio_button_unchecked);
         }else{
-            viewHolder.imgBanAn.setImageResource(R.drawable.ic_baseline_person_24);
+            viewHolder.imgBanAn.setImageResource(R.drawable.ic_baseline_weekend_24);
         }
 
         viewHolder.txtTenBanAn.setText(phieuMuaDTO.getTenBan());
