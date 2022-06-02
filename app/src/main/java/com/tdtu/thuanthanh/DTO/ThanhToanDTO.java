@@ -36,5 +36,4 @@ public class ThanhToanDTO {
     public void setHinhAnh(byte[] hinhAnh) {
         HinhAnh = hinhAnh;
     }
-
 }

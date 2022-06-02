@@ -6,7 +6,6 @@ public class LoaiSanPhamDTO {
     String TenLoai;
     byte[] HinhAnh;
 
-
     public int getMaLoai() {
         return MaLoai;
     }
@@ -30,5 +29,4 @@ public class LoaiSanPhamDTO {
     public void setHinhAnh(byte[] hinhAnh) {
         HinhAnh = hinhAnh;
     }
-
 }

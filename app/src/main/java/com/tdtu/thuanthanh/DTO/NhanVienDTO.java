@@ -76,6 +76,4 @@ public class NhanVienDTO {
     public void setNGAYSINH(String NGAYSINH) {
         this.NGAYSINH = NGAYSINH;
     }
-
-
 }

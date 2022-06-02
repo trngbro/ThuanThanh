@@ -37,9 +37,11 @@ public class SanPhamDTO {
     public void setGiaTien(String giaTien) {
         GiaTien = giaTien;
     }
+
     public String getTinhTrang() {
         return TinhTrang;
     }
+
     public void setTinhTrang(String tinhTrang) {
         TinhTrang = tinhTrang;
     }
@@ -51,5 +53,4 @@ public class SanPhamDTO {
     public void setHinhAnh(byte[] hinhAnh) {
         HinhAnh = hinhAnh;
     }
-
 }

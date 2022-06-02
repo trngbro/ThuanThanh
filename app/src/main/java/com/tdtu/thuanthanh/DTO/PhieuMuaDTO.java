@@ -6,7 +6,6 @@ public class PhieuMuaDTO {
     String TenBan;
     boolean DuocChon;
 
-
     public int getMaBan() {
         return MaBan;
     }
