@@ -1,7 +1,6 @@
 package com.tdtu.thuanthanh.CustomAdapter;
 
 import android.content.Context;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,11 +52,11 @@ public class AdapterDisplayStaff extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(layout,parent,false);
 
-            viewHolder.img_customstaff_HinhNV = (ImageView)view.findViewById(R.id.img_customstaff_HinhNV);
-            viewHolder.txt_customstaff_TenNV = (TextView)view.findViewById(R.id.txt_customstaff_TenNV);
-            viewHolder.txt_customstaff_TenQuyen = (TextView)view.findViewById(R.id.txt_customstaff_TenQuyen);
-            viewHolder.txt_customstaff_SDT = (TextView)view.findViewById(R.id.txt_customstaff_SDT);
-            viewHolder.txt_customstaff_Email = (TextView)view.findViewById(R.id.txt_customstaff_Email);
+            viewHolder.img_customstaff_HinhNV = view.findViewById(R.id.img_customstaff_HinhNV);
+            viewHolder.txt_customstaff_TenNV = view.findViewById(R.id.txt_customstaff_TenNV);
+            viewHolder.txt_customstaff_TenQuyen = view.findViewById(R.id.txt_customstaff_TenQuyen);
+            viewHolder.txt_customstaff_SDT = view.findViewById(R.id.txt_customstaff_SDT);
+            viewHolder.txt_customstaff_Email = view.findViewById(R.id.txt_customstaff_Email);
 
             view.setTag(viewHolder);
         }else{
@@ -73,7 +72,7 @@ public class AdapterDisplayStaff extends BaseAdapter {
         return view;
     }
 
-    public class ViewHolder{
+    public static class ViewHolder{
         ImageView img_customstaff_HinhNV;
         TextView txt_customstaff_TenNV, txt_customstaff_TenQuyen,txt_customstaff_SDT, txt_customstaff_Email;
     }

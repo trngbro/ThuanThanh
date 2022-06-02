@@ -29,8 +29,9 @@ public class AdapterRecycleViewCategory extends RecyclerView.Adapter<AdapterRecy
         this.loaiSanPhamDTOList = loaiSanPhamDTOList;
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(layout,parent,false);
         return new ViewHolder(view);
     }
@@ -49,7 +50,7 @@ public class AdapterRecycleViewCategory extends RecyclerView.Adapter<AdapterRecy
         return loaiSanPhamDTOList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView txt_customcategory_TenLoai;
         ImageView img_customcategory_HinhLoai;

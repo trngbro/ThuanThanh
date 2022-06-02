@@ -1,5 +1,6 @@
 package com.tdtu.thuanthanh.CustomAdapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -44,6 +45,7 @@ public class AdapterDisplayMenu extends BaseAdapter {
         return sanPhamDTOList.get(position).getMaMon();
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = convertView;
@@ -52,10 +54,10 @@ public class AdapterDisplayMenu extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(layout,parent,false);
 
-            viewholder.img_custommenu_HinhMon = (ImageView)view.findViewById(R.id.img_custommenu_HinhMon);
-            viewholder.txt_custommenu_TenMon = (TextView) view.findViewById(R.id.txt_custommenu_TenMon);
-            viewholder.txt_custommenu_TinhTrang = (TextView)view.findViewById(R.id.txt_custommenu_TinhTrang);
-            viewholder.txt_custommenu_GiaTien = (TextView)view.findViewById(R.id.txt_custommenu_GiaTien);
+            viewholder.img_custommenu_HinhMon = view.findViewById(R.id.img_custommenu_HinhMon);
+            viewholder.txt_custommenu_TenMon = view.findViewById(R.id.txt_custommenu_TenMon);
+            viewholder.txt_custommenu_TinhTrang = view.findViewById(R.id.txt_custommenu_TinhTrang);
+            viewholder.txt_custommenu_GiaTien = view.findViewById(R.id.txt_custommenu_GiaTien);
             view.setTag(viewholder);
         }else{
             viewholder = (Viewholder) view.getTag();
@@ -84,7 +86,7 @@ public class AdapterDisplayMenu extends BaseAdapter {
     }
 
     //tạo viewholer lưu trữ component
-    public class Viewholder{
+    public static class Viewholder{
         ImageView img_custommenu_HinhMon;
         TextView txt_custommenu_TenMon, txt_custommenu_GiaTien,txt_custommenu_TinhTrang;
     }

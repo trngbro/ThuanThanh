@@ -54,8 +54,8 @@ public class AdapterDisplayCategory extends BaseAdapter {
             view = inflater.inflate(layout,parent,false);
 
             //truyền component vào viewholder để ko gọi findview ở những lần hiển thị khác
-            viewHolder.img_customcategory_HinhLoai = (ImageView)view.findViewById(R.id.img_customcategory_HinhLoai);
-            viewHolder.txt_customcategory_TenLoai = (TextView)view.findViewById(R.id.txt_customcategory_TenLoai);
+            viewHolder.img_customcategory_HinhLoai = view.findViewById(R.id.img_customcategory_HinhLoai);
+            viewHolder.txt_customcategory_TenLoai = view.findViewById(R.id.txt_customcategory_TenLoai);
             view.setTag(viewHolder);
         }else{
             viewHolder = (ViewHolder) view.getTag();
@@ -72,7 +72,7 @@ public class AdapterDisplayCategory extends BaseAdapter {
     }
 
     //tạo viewholer lưu trữ component
-    public class ViewHolder{
+    public static class ViewHolder{
         TextView txt_customcategory_TenLoai;
         ImageView img_customcategory_HinhLoai;
     }

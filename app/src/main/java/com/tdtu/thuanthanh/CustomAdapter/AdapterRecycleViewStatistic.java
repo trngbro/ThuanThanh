@@ -1,5 +1,6 @@
 package com.tdtu.thuanthanh.CustomAdapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,12 +35,14 @@ public class AdapterRecycleViewStatistic extends RecyclerView.Adapter<AdapterRec
         phieuMuaDAO = new PhieuMuaDAO(context);
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(layout,parent,false);
         return new ViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(AdapterRecycleViewStatistic.ViewHolder holder, int position) {
         DonDatDTO donDatDTO = donDatDTOList.get(position);
@@ -69,7 +72,7 @@ public class AdapterRecycleViewStatistic extends RecyclerView.Adapter<AdapterRec
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder{
         TextView txt_customstatistic_MaDon, txt_customstatistic_NgayDat, txt_customstatistic_TenNV,
                 txt_customstatistic_BanDat, txt_customstatistic_TongTien,txt_customstatistic_TrangThai;
 

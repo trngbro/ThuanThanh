@@ -1,5 +1,6 @@
 package com.tdtu.thuanthanh.CustomAdapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -70,11 +71,11 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
             viewHolder = new ViewHolder();
             view = inflater.inflate(layout,parent,false);
 
-            viewHolder.imgBanAn = (ImageView) view.findViewById(R.id.img_customtable_BanAn);
-            viewHolder.imgGoiMon = (ImageView) view.findViewById(R.id.img_customtable_GoiMon);
-            viewHolder.imgThanhToan = (ImageView) view.findViewById(R.id.img_customtable_ThanhToan);
-            viewHolder.imgAnNut = (ImageView) view.findViewById(R.id.img_customtable_AnNut);
-            viewHolder.txtTenBanAn = (TextView)view.findViewById(R.id.txt_customtable_TenBanAn);
+            viewHolder.imgBanAn = view.findViewById(R.id.img_customtable_BanAn);
+            viewHolder.imgGoiMon = view.findViewById(R.id.img_customtable_GoiMon);
+            viewHolder.imgThanhToan = view.findViewById(R.id.img_customtable_ThanhToan);
+            viewHolder.imgAnNut = view.findViewById(R.id.img_customtable_AnNut);
+            viewHolder.txtTenBanAn = view.findViewById(R.id.txt_customtable_TenBanAn);
 
             view.setTag(viewHolder);
         }else{
@@ -108,6 +109,7 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
         return view;
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         int id = v.getId();
@@ -118,7 +120,7 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
         int maban = phieuMuaDTOList.get(vitri1).getMaBan();
         String tenban = phieuMuaDTOList.get(vitri1).getTenBan();
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         String ngaydat= dateFormat.format(calendar.getTime());
 
         switch (id){
@@ -184,7 +186,7 @@ public class AdapterDisplayTable extends BaseAdapter implements View.OnClickList
         viewHolder.imgAnNut.setVisibility(View.INVISIBLE);
     }
 
-    public class ViewHolder{
+    public static class ViewHolder{
         ImageView imgBanAn, imgGoiMon, imgThanhToan, imgAnNut;
         TextView txtTenBanAn;
     }

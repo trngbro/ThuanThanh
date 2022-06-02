@@ -1,5 +1,6 @@
 package com.tdtu.thuanthanh.CustomAdapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -44,6 +45,7 @@ public class AdapterDisplayPayment extends BaseAdapter {
         return 0;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = convertView;
@@ -52,10 +54,10 @@ public class AdapterDisplayPayment extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(layout,parent,false);
 
-            viewHolder.img_custompayment_HinhMon = (CircleImageView)view.findViewById(R.id.img_custompayment_HinhMon);
-            viewHolder.txt_custompayment_TenMon = (TextView)view.findViewById(R.id.txt_custompayment_TenMon);
-            viewHolder.txt_custompayment_SoLuong = (TextView)view.findViewById(R.id.txt_custompayment_SoLuong);
-            viewHolder.txt_custompayment_GiaTien = (TextView)view.findViewById(R.id.txt_custompayment_GiaTien);
+            viewHolder.img_custompayment_HinhMon = view.findViewById(R.id.img_custompayment_HinhMon);
+            viewHolder.txt_custompayment_TenMon = view.findViewById(R.id.txt_custompayment_TenMon);
+            viewHolder.txt_custompayment_SoLuong = view.findViewById(R.id.txt_custompayment_SoLuong);
+            viewHolder.txt_custompayment_GiaTien = view.findViewById(R.id.txt_custompayment_GiaTien);
 
             view.setTag(viewHolder);
         }else{
@@ -65,7 +67,7 @@ public class AdapterDisplayPayment extends BaseAdapter {
 
         viewHolder.txt_custompayment_TenMon.setText(thanhToanDTO.getTenMon());
         viewHolder.txt_custompayment_SoLuong.setText(String.valueOf(thanhToanDTO.getSoLuong()));
-        viewHolder.txt_custompayment_GiaTien.setText(String.valueOf(thanhToanDTO.getGiaTien())+" đ");
+        viewHolder.txt_custompayment_GiaTien.setText(thanhToanDTO.getGiaTien() +" đ");
 
         byte[] paymentimg = thanhToanDTO.getHinhAnh();
         Bitmap bitmap = BitmapFactory.decodeByteArray(paymentimg,0,paymentimg.length);
@@ -74,7 +76,7 @@ public class AdapterDisplayPayment extends BaseAdapter {
         return view;
     }
 
-    public class ViewHolder{
+    public static class ViewHolder{
         CircleImageView img_custompayment_HinhMon;
         TextView txt_custompayment_TenMon, txt_custompayment_SoLuong, txt_custompayment_GiaTien;
     }
