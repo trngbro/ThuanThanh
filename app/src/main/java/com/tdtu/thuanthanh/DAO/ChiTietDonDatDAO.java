@@ -1,5 +1,6 @@
 package com.tdtu.thuanthanh.DAO;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -19,19 +20,15 @@ public class ChiTietDonDatDAO {
     public boolean KiemTraMonTonTai(int madondat, int mamon){
         String query = "SELECT * FROM " +CreateDatabase.TBL_CHITIETDONDAT+ " WHERE " +CreateDatabase.TBL_CHITIETDONDAT_MAMON+
                 " = " +mamon+ " AND " +CreateDatabase.TBL_CHITIETDONDAT_MADONDAT+ " = "+madondat;
-        Cursor cursor = database.rawQuery(query,null);
-        if(cursor.getCount() != 0){
-            return true;
-        }else{
-            return false;
-        }
+        @SuppressLint("Recycle") Cursor cursor = database.rawQuery(query,null);
+        return cursor.getCount() != 0;
     }
 
     public int LaySLMonTheoMaDon(int madondat, int mamon){
         int soluong = 0;
         String query = "SELECT * FROM " +CreateDatabase.TBL_CHITIETDONDAT+ " WHERE " +CreateDatabase.TBL_CHITIETDONDAT_MAMON+
                 " = " +mamon+ " AND " +CreateDatabase.TBL_CHITIETDONDAT_MADONDAT+ " = "+madondat;
-        Cursor cursor = database.rawQuery(query,null);
+        @SuppressLint("Recycle") Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             soluong = cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_CHITIETDONDAT_SOLUONG));
@@ -47,11 +44,7 @@ public class ChiTietDonDatDAO {
         long ktra = database.update(CreateDatabase.TBL_CHITIETDONDAT,contentValues,CreateDatabase.TBL_CHITIETDONDAT_MADONDAT+ " = "
                 +chiTietDonDatDTO.getMaDonDat()+ " AND " +CreateDatabase.TBL_CHITIETDONDAT_MAMON+ " = "
                 +chiTietDonDatDTO.getMaMon(),null);
-        if(ktra !=0){
-            return true;
-        }else{
-            return false;
-        }
+        return ktra != 0;
     }
 
     public boolean ThemChiTietDonDat(ChiTietDonDatDTO chiTietDonDatDTO){
@@ -61,11 +54,6 @@ public class ChiTietDonDatDAO {
         contentValues.put(CreateDatabase.TBL_CHITIETDONDAT_MAMON,chiTietDonDatDTO.getMaMon());
 
         long ktra = database.insert(CreateDatabase.TBL_CHITIETDONDAT,null,contentValues);
-        if(ktra !=0){
-            return true;
-        }else{
-            return false;
-        }
+        return ktra != 0;
     }
-
 }

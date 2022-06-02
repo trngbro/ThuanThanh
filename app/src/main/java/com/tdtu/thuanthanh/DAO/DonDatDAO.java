@@ -1,5 +1,6 @@
 package com.tdtu.thuanthanh.DAO;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -27,15 +28,13 @@ public class DonDatDAO {
         contentValues.put(CreateDatabase.TBL_HOADON_TINHTRANG,donDatDTO.getTinhTrang());
         contentValues.put(CreateDatabase.TBL_HOADON_TONGTIEN,donDatDTO.getTongTien());
 
-        long madondat = database.insert(CreateDatabase.TBL_HOADON,null,contentValues);
-
-        return madondat;
+        return database.insert(CreateDatabase.TBL_HOADON,null,contentValues);
     }
 
     public List<DonDatDTO> LayDSDonDat(){
-        List<DonDatDTO> donDatDTOS = new ArrayList<DonDatDTO>();
+        List<DonDatDTO> donDatDTOS = new ArrayList<>();
         String query = "SELECT * FROM "+CreateDatabase.TBL_HOADON;
-        Cursor cursor = database.rawQuery(query,null);
+        @SuppressLint("Recycle") Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             DonDatDTO donDatDTO = new DonDatDTO();
@@ -53,9 +52,9 @@ public class DonDatDAO {
     }
 
     public List<DonDatDTO> LayDSDonDatNgay(String ngaythang){
-        List<DonDatDTO> donDatDTOS = new ArrayList<DonDatDTO>();
+        List<DonDatDTO> donDatDTOS = new ArrayList<>();
         String query = "SELECT * FROM "+CreateDatabase.TBL_HOADON+" WHERE "+CreateDatabase.TBL_HOADON_NGAYDAT+" like '"+ngaythang+"'";
-        Cursor cursor = database.rawQuery(query,null);
+        @SuppressLint("Recycle") Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             DonDatDTO donDatDTO = new DonDatDTO();
@@ -76,7 +75,7 @@ public class DonDatDAO {
         String query = "SELECT * FROM " +CreateDatabase.TBL_HOADON+ " WHERE " +CreateDatabase.TBL_HOADON_MABAN+ " = '" +maban+ "' AND "
                 +CreateDatabase.TBL_HOADON_TINHTRANG+ " = '" +tinhtrang+ "' ";
         long magoimon = 0;
-        Cursor cursor = database.rawQuery(query,null);
+        @SuppressLint("Recycle") Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             magoimon = cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_HOADON_MADONDAT));
@@ -91,11 +90,7 @@ public class DonDatDAO {
         contentValues.put(CreateDatabase.TBL_HOADON_TONGTIEN,tongtien);
         long ktra  = database.update(CreateDatabase.TBL_HOADON,contentValues,
                 CreateDatabase.TBL_HOADON_MADONDAT+" = "+madondat,null);
-        if(ktra != 0){
-            return true;
-        }else{
-            return false;
-        }
+        return ktra != 0;
     }
 
     public boolean UpdateTThaiDonTheoMaBan(int maban,String tinhtrang){
@@ -103,11 +98,7 @@ public class DonDatDAO {
         contentValues.put(CreateDatabase.TBL_HOADON_TINHTRANG,tinhtrang);
         long ktra = database.update(CreateDatabase.TBL_HOADON,contentValues,CreateDatabase.TBL_HOADON_MABAN+
                 " = '"+maban+"'",null);
-        if(ktra !=0){
-            return true;
-        }else{
-            return false;
-        }
+        return ktra != 0;
     }
 
 }

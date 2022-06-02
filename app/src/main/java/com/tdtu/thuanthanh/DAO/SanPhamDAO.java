@@ -1,5 +1,6 @@
 package com.tdtu.thuanthanh.DAO;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -28,21 +29,13 @@ public class SanPhamDAO {
 
         long ktra = database.insert(CreateDatabase.TBL_MONAN,null,contentValues);
 
-        if(ktra !=0){
-            return true;
-        }else{
-            return false;
-        }
+        return ktra != 0;
     }
 
     public boolean XoaMon(int mamon){
         long ktra = database.delete(CreateDatabase.TBL_MONAN,CreateDatabase.TBL_MONAN_MASANPHAM+ " = " +mamon
                 ,null);
-        if(ktra !=0 ){
-            return true;
-        }else{
-            return false;
-        }
+        return ktra != 0;
     }
 
     public boolean SuaMon(SanPhamDTO sanPhamDTO, int mamon){
@@ -55,17 +48,13 @@ public class SanPhamDAO {
 
         long ktra = database.update(CreateDatabase.TBL_MONAN,contentValues,
                 CreateDatabase.TBL_MONAN_MASANPHAM+" = "+mamon,null);
-        if(ktra !=0){
-            return true;
-        }else{
-            return false;
-        }
+        return ktra != 0;
     }
 
     public List<SanPhamDTO> LayDSMonTheoLoai(int maloai){
-        List<SanPhamDTO> sanPhamDTOList = new ArrayList<SanPhamDTO>();
+        List<SanPhamDTO> sanPhamDTOList = new ArrayList<>();
         String query = "SELECT * FROM " +CreateDatabase.TBL_MONAN+ " WHERE " +CreateDatabase.TBL_MONAN_MALOAI+ " = '" +maloai+ "' ";
-        Cursor cursor = database.rawQuery(query,null);
+        @SuppressLint("Recycle") Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             SanPhamDTO sanPhamDTO = new SanPhamDTO();
@@ -85,7 +74,7 @@ public class SanPhamDAO {
     public SanPhamDTO LayMonTheoMa(int mamon){
         SanPhamDTO sanPhamDTO = new SanPhamDTO();
         String query = "SELECT * FROM "+CreateDatabase.TBL_MONAN+" WHERE "+CreateDatabase.TBL_MONAN_MASANPHAM+" = "+mamon;
-        Cursor cursor = database.rawQuery(query,null);
+        @SuppressLint("Recycle") Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             sanPhamDTO.setHinhAnh(cursor.getBlob(cursor.getColumnIndex(CreateDatabase.TBL_MONAN_HINHANH)));
@@ -99,5 +88,4 @@ public class SanPhamDAO {
         }
         return sanPhamDTO;
     }
-
 }

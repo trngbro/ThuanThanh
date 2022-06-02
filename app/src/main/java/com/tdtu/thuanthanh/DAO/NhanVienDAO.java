@@ -1,5 +1,6 @@
 package com.tdtu.thuanthanh.DAO;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -30,8 +31,7 @@ public class NhanVienDAO {
         contentValues.put(CreateDatabase.TBL_NHANVIEN_NGAYSINH,nhanVienDTO.getNGAYSINH());
         contentValues.put(CreateDatabase.TBL_NHANVIEN_MAQUYEN,nhanVienDTO.getMAQUYEN());
 
-        long ktra = database.insert(CreateDatabase.TBL_NHANVIEN,null,contentValues);
-        return ktra;
+        return database.insert(CreateDatabase.TBL_NHANVIEN,null,contentValues);
     }
 
     public long SuaNhanVien(NhanVienDTO nhanVienDTO,int manv){
@@ -45,16 +45,15 @@ public class NhanVienDAO {
         contentValues.put(CreateDatabase.TBL_NHANVIEN_NGAYSINH,nhanVienDTO.getNGAYSINH());
         contentValues.put(CreateDatabase.TBL_NHANVIEN_MAQUYEN,nhanVienDTO.getMAQUYEN());
 
-        long ktra = database.update(CreateDatabase.TBL_NHANVIEN,contentValues,
+        return database.update(CreateDatabase.TBL_NHANVIEN,contentValues,
                 CreateDatabase.TBL_NHANVIEN_MANV+" = "+manv,null);
-        return ktra;
     }
 
     public int KiemTraDN(String tenDN, String matKhau){
         String query = "SELECT * FROM " +CreateDatabase.TBL_NHANVIEN+ " WHERE "
                 +CreateDatabase.TBL_NHANVIEN_TENDN +" = '"+ tenDN+"' AND "+CreateDatabase.TBL_NHANVIEN_MATKHAU +" = '" +matKhau +"'";
         int manv = 0;
-        Cursor cursor = database.rawQuery(query,null);
+        @SuppressLint("Recycle") Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             manv = cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_NHANVIEN_MANV)) ;
@@ -65,19 +64,15 @@ public class NhanVienDAO {
 
     public boolean KtraTonTaiNV(){
         String query = "SELECT * FROM "+CreateDatabase.TBL_NHANVIEN;
-        Cursor cursor =database.rawQuery(query,null);
-        if(cursor.getCount() != 0){
-            return true;
-        }else{
-            return false;
-        }
+        @SuppressLint("Recycle") Cursor cursor =database.rawQuery(query,null);
+        return cursor.getCount() != 0;
     }
 
     public List<NhanVienDTO> LayDSNV(){
-        List<NhanVienDTO> nhanVienDTOS = new ArrayList<NhanVienDTO>();
+        List<NhanVienDTO> nhanVienDTOS = new ArrayList<>();
         String query = "SELECT * FROM "+CreateDatabase.TBL_NHANVIEN;
 
-        Cursor cursor = database.rawQuery(query,null);
+        @SuppressLint("Recycle") Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             NhanVienDTO nhanVienDTO = new NhanVienDTO();
@@ -100,17 +95,13 @@ public class NhanVienDAO {
     public boolean XoaNV(int manv){
         long ktra = database.delete(CreateDatabase.TBL_NHANVIEN,CreateDatabase.TBL_NHANVIEN_MANV+ " = " +manv
                 ,null);
-        if(ktra !=0 ){
-            return true;
-        }else{
-            return false;
-        }
+        return ktra != 0;
     }
 
     public NhanVienDTO LayNVTheoMa(int manv){
         NhanVienDTO nhanVienDTO = new NhanVienDTO();
         String query = "SELECT * FROM "+CreateDatabase.TBL_NHANVIEN+" WHERE "+CreateDatabase.TBL_NHANVIEN_MANV+" = "+manv;
-        Cursor cursor = database.rawQuery(query,null);
+        @SuppressLint("Recycle") Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             nhanVienDTO.setHOTENNV(cursor.getString(cursor.getColumnIndex(CreateDatabase.TBL_NHANVIEN_HOTENNV)));
@@ -131,7 +122,7 @@ public class NhanVienDAO {
     public int LayQuyenNV(int manv){
         int maquyen = 0;
         String query = "SELECT * FROM "+CreateDatabase.TBL_NHANVIEN+" WHERE "+CreateDatabase.TBL_NHANVIEN_MANV+" = "+manv;
-        Cursor cursor = database.rawQuery(query,null);
+        @SuppressLint("Recycle") Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             maquyen = cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_NHANVIEN_MAQUYEN));

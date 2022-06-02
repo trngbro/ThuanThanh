@@ -1,5 +1,6 @@
 package com.tdtu.thuanthanh.DAO;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -25,21 +26,13 @@ public class LoaiSanPhamDAO {
         contentValues.put(CreateDatabase.TBL_LOAITHUCDON_HINHANH, loaiSanPhamDTO.getHinhAnh());
         long ktra = database.insert(CreateDatabase.TBL_LOAITHUCDON,null,contentValues);
 
-        if(ktra != 0){
-            return true;
-        }else{
-            return false;
-        }
+        return ktra != 0;
     }
 
     public boolean XoaLoaiMon(int maloai){
         long ktra = database.delete(CreateDatabase.TBL_LOAITHUCDON,CreateDatabase.TBL_LOAITHUCDON_MALOAI+ " = " +maloai
                 ,null);
-        if(ktra !=0 ){
-            return true;
-        }else{
-            return false;
-        }
+        return ktra != 0;
     }
 
     public boolean SuaLoaiMon(LoaiSanPhamDTO loaiSanPhamDTO, int maloai){
@@ -48,17 +41,13 @@ public class LoaiSanPhamDAO {
         contentValues.put(CreateDatabase.TBL_LOAITHUCDON_HINHANH, loaiSanPhamDTO.getHinhAnh());
         long ktra = database.update(CreateDatabase.TBL_LOAITHUCDON,contentValues
                 ,CreateDatabase.TBL_LOAITHUCDON_MALOAI+" = "+maloai,null);
-        if(ktra != 0){
-            return true;
-        }else{
-            return false;
-        }
+        return ktra != 0;
     }
 
     public List<LoaiSanPhamDTO> LayDSLoaiMon(){
-        List<LoaiSanPhamDTO> loaiSanPhamDTOList = new ArrayList<LoaiSanPhamDTO>();
+        List<LoaiSanPhamDTO> loaiSanPhamDTOList = new ArrayList<>();
         String query = "SELECT * FROM " +CreateDatabase.TBL_LOAITHUCDON;
-        Cursor cursor = database.rawQuery(query,null);
+        @SuppressLint("Recycle") Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             LoaiSanPhamDTO loaiSanPhamDTO = new LoaiSanPhamDTO();
@@ -75,7 +64,7 @@ public class LoaiSanPhamDAO {
     public LoaiSanPhamDTO LayLoaiMonTheoMa(int maloai){
         LoaiSanPhamDTO loaiSanPhamDTO = new LoaiSanPhamDTO();
         String query = "SELECT * FROM " +CreateDatabase.TBL_LOAITHUCDON+" WHERE "+CreateDatabase.TBL_LOAITHUCDON_MALOAI+" = "+maloai;
-        Cursor cursor = database.rawQuery(query,null);
+        @SuppressLint("Recycle") Cursor cursor = database.rawQuery(query,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
             loaiSanPhamDTO.setMaLoai(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TBL_LOAITHUCDON_MALOAI)));
@@ -86,5 +75,4 @@ public class LoaiSanPhamDAO {
         }
         return loaiSanPhamDTO;
     }
-
 }
