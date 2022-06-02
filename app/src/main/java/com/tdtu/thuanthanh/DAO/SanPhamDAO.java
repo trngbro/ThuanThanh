@@ -33,8 +33,7 @@ public class SanPhamDAO {
     }
 
     public boolean XoaMon(int mamon){
-        long ktra = database.delete(CreateDatabase.TBL_MONAN,CreateDatabase.TBL_MONAN_MASANPHAM+ " = " +mamon
-                ,null);
+        long ktra = database.delete(CreateDatabase.TBL_MONAN,CreateDatabase.TBL_MONAN_MASANPHAM+ " = " +mamon,null);
         return ktra != 0;
     }
 
