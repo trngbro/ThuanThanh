@@ -10,9 +10,9 @@
 
         <ImageView
             android:id="@+id/img_custommenu_HinhMon"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="200dp"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             android:src="@drawable/pic_item" />
 
         <TextView
