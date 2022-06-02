@@ -1,17 +1,17 @@
 package com.tdtu.thuanthanh.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.tdtu.thuanthanh.CustomAdapter.AdapterDisplayPayment;
-import com.tdtu.thuanthanh.DAO.PhieuMuaDAO;
 import com.tdtu.thuanthanh.DAO.NhanVienDAO;
+import com.tdtu.thuanthanh.DAO.PhieuMuaDAO;
 import com.tdtu.thuanthanh.DAO.ThanhToanDAO;
 import com.tdtu.thuanthanh.DTO.NhanVienDTO;
 import com.tdtu.thuanthanh.DTO.ThanhToanDTO;
@@ -22,8 +22,7 @@ import java.util.List;
 public class DetailStatisticActivity extends AppCompatActivity {
 
     ImageView img_detailstatistic_backbtn;
-    TextView txt_detailstatistic_MaDon,txt_detailstatistic_NgayDat,txt_detailstatistic_TenBan
-            ,txt_detailstatistic_TenNV,txt_detailstatistic_TongTien;
+    TextView txt_detailstatistic_MaDon, txt_detailstatistic_NgayDat, txt_detailstatistic_TenBan , txt_detailstatistic_TenNV, txt_detailstatistic_TongTien;
     GridView gvDetailStatistic;
     int madon, manv, maban;
     String ngaydat, tongtien;
@@ -33,6 +32,7 @@ public class DetailStatisticActivity extends AppCompatActivity {
     ThanhToanDAO thanhToanDAO;
     AdapterDisplayPayment adapterDisplayPayment;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +54,7 @@ public class DetailStatisticActivity extends AppCompatActivity {
         txt_detailstatistic_TenNV = (TextView)findViewById(R.id.txt_detailstatistic_TenNV);
         txt_detailstatistic_TongTien = (TextView)findViewById(R.id.txt_detailstatistic_TongTien);
         gvDetailStatistic = (GridView)findViewById(R.id.gvDetailStatistic);
-        //endregion
+        //end
 
         //khởi tạo lớp dao mở kết nối csdl
         nhanVienDAO = new NhanVienDAO(this);
@@ -74,12 +74,9 @@ public class DetailStatisticActivity extends AppCompatActivity {
             HienThiDSCTDD();
         }
 
-        img_detailstatistic_backbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
-            }
+        img_detailstatistic_backbtn.setOnClickListener(v -> {
+            finish();
+            overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
         });
     }
 

@@ -2,6 +2,7 @@ package com.tdtu.thuanthanh.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.tdtu.thuanthanh.DTO.NhanVienDTO;
 import com.tdtu.thuanthanh.R;
 
 import java.util.Calendar;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class AddStaffActivity extends AppCompatActivity implements View.OnClickListener{
@@ -26,8 +28,8 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
     private static final Pattern PASSWORD_PATTERN =
             Pattern.compile("^" +
                     //"(?=.*[@#$%^&+=])" +     // at least 1 special character
-                    "(?=\\S+$)" +            // no white spaces
-                    ".{6,}" +                // at least 4 characters
+                    "(?=\\S+$)" +              // no white spaces
+                    ".{6,}" +                  // at least 4 characters
                     "$");
 
     ImageView IMG_addstaff_back;
@@ -42,6 +44,7 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
     int manv = 0,quyen = 0;
     long ktra = 0;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,8 +68,6 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
         DT_addstaff_NgaySinh = (DatePicker)findViewById(R.id.dt_addstaff_NgaySinh);
         BTN_addstaff_ThemNV = (Button)findViewById(R.id.btn_addstaff_ThemNV);
 
-        //endregion
-
         nhanVienDAO = new NhanVienDAO(this);
 
         //region Hiển thị trang sửa nếu được chọn từ context menu sửa
@@ -76,11 +77,11 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
             NhanVienDTO nhanVienDTO = nhanVienDAO.LayNVTheoMa(manv);
 
             //Hiển thị thông tin từ csdl
-            TXTL_addstaff_HoVaTen.getEditText().setText(nhanVienDTO.getHOTENNV());
-            TXTL_addstaff_TenDN.getEditText().setText(nhanVienDTO.getTENDN());
-            TXTL_addstaff_Email.getEditText().setText(nhanVienDTO.getEMAIL());
-            TXTL_addstaff_SDT.getEditText().setText(nhanVienDTO.getSDT());
-            TXTL_addstaff_MatKhau.getEditText().setText(nhanVienDTO.getMATKHAU());
+            Objects.requireNonNull(TXTL_addstaff_HoVaTen.getEditText()).setText(nhanVienDTO.getHOTENNV());
+            Objects.requireNonNull(TXTL_addstaff_TenDN.getEditText()).setText(nhanVienDTO.getTENDN());
+            Objects.requireNonNull(TXTL_addstaff_Email.getEditText()).setText(nhanVienDTO.getEMAIL());
+            Objects.requireNonNull(TXTL_addstaff_SDT.getEditText()).setText(nhanVienDTO.getSDT());
+            Objects.requireNonNull(TXTL_addstaff_MatKhau.getEditText()).setText(nhanVienDTO.getMATKHAU());
 
             //Hiển thị giới tính từ csdl
             String gioitinh = nhanVienDTO.getGIOITINH();
@@ -107,12 +108,12 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
             DT_addstaff_NgaySinh.updateDate(year,month,day);
             BTN_addstaff_ThemNV.setText("Sửa nhân viên");
         }
-        //endregion
 
         BTN_addstaff_ThemNV.setOnClickListener(this);
         IMG_addstaff_back.setOnClickListener(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         int id = v.getId();
@@ -124,11 +125,11 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
                     return;
                 }
                 //Lấy dữ liệu từ view
-                hoTen = TXTL_addstaff_HoVaTen.getEditText().getText().toString();
-                tenDN = TXTL_addstaff_TenDN.getEditText().getText().toString();
-                eMail = TXTL_addstaff_Email.getEditText().getText().toString();
-                sDT = TXTL_addstaff_SDT.getEditText().getText().toString();
-                matKhau = TXTL_addstaff_MatKhau.getEditText().getText().toString();
+                hoTen = Objects.requireNonNull(TXTL_addstaff_HoVaTen.getEditText()).getText().toString();
+                tenDN = Objects.requireNonNull(TXTL_addstaff_TenDN.getEditText()).getText().toString();
+                eMail = Objects.requireNonNull(TXTL_addstaff_Email.getEditText()).getText().toString();
+                sDT = Objects.requireNonNull(TXTL_addstaff_SDT.getEditText()).getText().toString();
+                matKhau = Objects.requireNonNull(TXTL_addstaff_MatKhau.getEditText()).getText().toString();
 
                 switch (RG_addstaff_GioiTinh.getCheckedRadioButtonId()){
                     case R.id.rd_addstaff_Nam: gioiTinh = "Nam"; break;
@@ -178,7 +179,7 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
 
     //region validate fields
     private boolean validateFullName(){
-        String val = TXTL_addstaff_HoVaTen.getEditText().getText().toString().trim();
+        String val = Objects.requireNonNull(TXTL_addstaff_HoVaTen.getEditText()).getText().toString().trim();
 
         if(val.isEmpty()){
             TXTL_addstaff_HoVaTen.setError(getResources().getString(R.string.not_empty));
@@ -191,7 +192,7 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private boolean validateUserName(){
-        String val = TXTL_addstaff_TenDN.getEditText().getText().toString().trim();
+        String val = Objects.requireNonNull(TXTL_addstaff_TenDN.getEditText()).getText().toString().trim();
         String checkspaces = "\\A\\w{1,50}\\z";
 
         if(val.isEmpty()){
@@ -212,7 +213,7 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private boolean validateEmail(){
-        String val = TXTL_addstaff_Email.getEditText().getText().toString().trim();
+        String val = Objects.requireNonNull(TXTL_addstaff_Email.getEditText()).getText().toString().trim();
         String checkspaces = "[a-zA-Z0-9._-]+@[a-z]+.+[a-z]+";
 
         if(val.isEmpty()){
@@ -230,8 +231,7 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private boolean validatePhone(){
-        String val = TXTL_addstaff_SDT.getEditText().getText().toString().trim();
-
+        String val = Objects.requireNonNull(TXTL_addstaff_SDT.getEditText()).getText().toString().trim();
 
         if(val.isEmpty()){
             TXTL_addstaff_SDT.setError(getResources().getString(R.string.not_empty));
@@ -248,7 +248,7 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private boolean validatePassWord(){
-        String val = TXTL_addstaff_MatKhau.getEditText().getText().toString().trim();
+        String val = Objects.requireNonNull(TXTL_addstaff_MatKhau.getEditText()).getText().toString().trim();
 
         if(val.isEmpty()){
             TXTL_addstaff_MatKhau.setError(getResources().getString(R.string.not_empty));
@@ -294,5 +294,4 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
             return true;
         }
     }
-    //endregion
 }

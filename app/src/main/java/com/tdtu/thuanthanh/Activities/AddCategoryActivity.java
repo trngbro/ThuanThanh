@@ -71,7 +71,6 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
         IMG_addcategory_back = findViewById(R.id.img_addcategory_back);
         IMG_addcategory_ThemHinh = findViewById(R.id.img_addcategory_ThemHinh);
         TXT_addcategory_title = findViewById(R.id.txt_addcategory_title);
-        //endregion
 
         BitmapDrawable olddrawable = (BitmapDrawable)IMG_addcategory_ThemHinh.getDrawable();
         bitmapold = olddrawable.getBitmap();
@@ -91,7 +90,6 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
 
             BTN_addcategory_TaoLoai.setText("Sửa loại");
         }
-        //endregion
 
         IMG_addcategory_back.setOnClickListener(this);
         IMG_addcategory_ThemHinh.setOnClickListener(this);
@@ -176,5 +174,4 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
             return true;
         }
     }
-    //endregion
 }

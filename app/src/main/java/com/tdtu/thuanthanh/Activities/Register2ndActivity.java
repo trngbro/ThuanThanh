@@ -2,9 +2,9 @@ package com.tdtu.thuanthanh.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -27,15 +27,16 @@ public class Register2ndActivity extends AppCompatActivity {
     NhanVienDAO nhanVienDAO;
     QuyenDAO quyenDAO;
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register2nd_layout);
 
         //lấy đối tượng view
-        RG_signup_GioiTinh = (RadioGroup)findViewById(R.id.rg_signup_GioiTinh);
-        DT_signup_NgaySinh = (DatePicker)findViewById(R.id.dt_signup_NgaySinh);
-        BTN_signup_next = (Button)findViewById(R.id.btn_signup_next);
+        RG_signup_GioiTinh = findViewById(R.id.rg_signup_GioiTinh);
+        DT_signup_NgaySinh = findViewById(R.id.dt_signup_NgaySinh);
+        BTN_signup_next = findViewById(R.id.btn_signup_next);
 
         //lấy dữ liệu từ bundle của register1
         Bundle bundle = getIntent().getBundleExtra(RegisterActivity.BUNDLE);
@@ -50,52 +51,49 @@ public class Register2ndActivity extends AppCompatActivity {
         nhanVienDAO = new NhanVienDAO(this);
         quyenDAO = new QuyenDAO(this);
 
-        BTN_signup_next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!validateAge() | !validateGender()){
-                    return;
-                }
+        BTN_signup_next.setOnClickListener(v -> {
+            if(!validateAge() | !validateGender()){
+                return;
+            }
 
-                //lấy các thông tin còn lại
-                switch (RG_signup_GioiTinh.getCheckedRadioButtonId()){
-                    case R.id.rd_signup_Nam:
-                        gioiTinh = "Nam"; break;
-                    case R.id.rd_signup_Nu:
-                        gioiTinh = "Nữ"; break;
-                    case R.id.rd_signup_Khac:
-                        gioiTinh = "Khác"; break;
-                }
-                String ngaySinh = DT_signup_NgaySinh.getDayOfMonth() + "/" + (DT_signup_NgaySinh.getMonth() + 1)
-                        +"/"+DT_signup_NgaySinh.getYear();
+            //lấy các thông tin còn lại
+            switch (RG_signup_GioiTinh.getCheckedRadioButtonId()){
+                case R.id.rd_signup_Nam:
+                    gioiTinh = "Nam"; break;
+                case R.id.rd_signup_Nu:
+                    gioiTinh = "Nữ"; break;
+                case R.id.rd_signup_Khac:
+                    gioiTinh = "Khác"; break;
+            }
+            String ngaySinh = DT_signup_NgaySinh.getDayOfMonth() + "/" + (DT_signup_NgaySinh.getMonth() + 1)
+                    +"/"+DT_signup_NgaySinh.getYear();
 
-                //truyền dữ liệu vào obj nhanvienDTO
-                NhanVienDTO nhanVienDTO = new NhanVienDTO();
-                nhanVienDTO.setHOTENNV(hoTen);
-                nhanVienDTO.setTENDN(tenDN);
-                nhanVienDTO.setEMAIL(eMail);
-                nhanVienDTO.setSDT(sDT);
-                nhanVienDTO.setMATKHAU(matKhau);
-                nhanVienDTO.setGIOITINH(gioiTinh);
-                nhanVienDTO.setNGAYSINH(ngaySinh);
+            //truyền dữ liệu vào obj nhanvienDTO
+            NhanVienDTO nhanVienDTO = new NhanVienDTO();
+            nhanVienDTO.setHOTENNV(hoTen);
+            nhanVienDTO.setTENDN(tenDN);
+            nhanVienDTO.setEMAIL(eMail);
+            nhanVienDTO.setSDT(sDT);
+            nhanVienDTO.setMATKHAU(matKhau);
+            nhanVienDTO.setGIOITINH(gioiTinh);
+            nhanVienDTO.setNGAYSINH(ngaySinh);
 
-                //nếu nhân viên đầu tiên đăng ký sẽ có quyền quản lý
-                if(!nhanVienDAO.KtraTonTaiNV()){
-                    quyenDAO.ThemQuyen("Quản lý");
-                    quyenDAO.ThemQuyen("Nhân viên");
-                    nhanVienDTO.setMAQUYEN(1);
-                }else{
-                    nhanVienDTO.setMAQUYEN(2);
-                }
+            //nếu nhân viên đầu tiên đăng ký sẽ có quyền quản lý
+            if(!nhanVienDAO.KtraTonTaiNV()){
+                quyenDAO.ThemQuyen("Quản lý");
+                quyenDAO.ThemQuyen("Nhân viên");
+                nhanVienDTO.setMAQUYEN(1);
+            }else{
+                nhanVienDTO.setMAQUYEN(2);
+            }
 
-                //Thêm nv dựa theo obj nhanvienDTO
-                long ktra = nhanVienDAO.ThemNhanVien(nhanVienDTO);
-                if(ktra != 0){
-                    Toast.makeText(Register2ndActivity.this,getResources().getString(R.string.add_sucessful),Toast.LENGTH_SHORT).show();
-                    callLoginFromRegister();
-                }else{
-                    Toast.makeText(Register2ndActivity.this,getResources().getString(R.string.add_failed),Toast.LENGTH_SHORT).show();
-                }
+            //Thêm nv dựa theo obj nhanvienDTO
+            long ktra = nhanVienDAO.ThemNhanVien(nhanVienDTO);
+            if(ktra != 0){
+                Toast.makeText(Register2ndActivity.this,getResources().getString(R.string.add_sucessful),Toast.LENGTH_SHORT).show();
+                callLoginFromRegister();
+            }else{
+                Toast.makeText(Register2ndActivity.this,getResources().getString(R.string.add_failed),Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -141,5 +139,4 @@ public class Register2ndActivity extends AppCompatActivity {
             return true;
         }
     }
-    //endregion
 }

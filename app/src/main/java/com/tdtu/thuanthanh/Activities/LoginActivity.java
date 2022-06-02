@@ -16,6 +16,8 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.tdtu.thuanthanh.DAO.NhanVienDAO;
 import com.tdtu.thuanthanh.R;
 
+import java.util.Objects;
+
 public class LoginActivity extends AppCompatActivity {
     Button BTN_login_DangNhap, BTN_login_DangKy;
     TextInputLayout TXTL_login_TenDN, TXTL_login_MatKhau;
@@ -27,39 +29,36 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login_layout);
 
         //thuộc tính view
-        TXTL_login_TenDN = (TextInputLayout)findViewById(R.id.txtl_login_TenDN);
-        TXTL_login_MatKhau = (TextInputLayout)findViewById(R.id.txtl_login_MatKhau);
-        BTN_login_DangNhap = (Button)findViewById(R.id.btn_login_DangNhap);
-        BTN_login_DangKy = (Button)findViewById(R.id.btn_login_DangKy);
+        TXTL_login_TenDN = findViewById(R.id.txtl_login_TenDN);
+        TXTL_login_MatKhau = findViewById(R.id.txtl_login_MatKhau);
+        BTN_login_DangNhap = findViewById(R.id.btn_login_DangNhap);
+        BTN_login_DangKy = findViewById(R.id.btn_login_DangKy);
 
         nhanVienDAO = new NhanVienDAO(this);    //khởi tạo kết nối csdl
 
-        BTN_login_DangNhap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!validateUserName() | !validatePassWord()){
-                    return;
-                }
+        BTN_login_DangNhap.setOnClickListener(v -> {
+            if(!validateUserName() | !validatePassWord()){
+                return;
+            }
 
-                String tenDN = TXTL_login_TenDN.getEditText().getText().toString();
-                String matKhau = TXTL_login_MatKhau.getEditText().getText().toString();
-                int ktra = nhanVienDAO.KiemTraDN(tenDN,matKhau);
-                int maquyen = nhanVienDAO.LayQuyenNV(ktra);
-                if(ktra != 0){
-                    // lưu mã quyền vào shareprefer
-                    SharedPreferences sharedPreferences = getSharedPreferences("luuquyen", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor =sharedPreferences.edit();
-                    editor.putInt("maquyen",maquyen);
-                    editor.commit();
+            String tenDN = Objects.requireNonNull(TXTL_login_TenDN.getEditText()).getText().toString();
+            String matKhau = Objects.requireNonNull(TXTL_login_MatKhau.getEditText()).getText().toString();
+            int ktra = nhanVienDAO.KiemTraDN(tenDN,matKhau);
+            int maquyen = nhanVienDAO.LayQuyenNV(ktra);
+            if(ktra != 0){
+                // lưu mã quyền vào shareprefer
+                SharedPreferences sharedPreferences = getSharedPreferences("luuquyen", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor =sharedPreferences.edit();
+                editor.putInt("maquyen",maquyen);
+                editor.apply();
 
-                    //gửi dữ liệu user qua trang chủ
-                    Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
-                    intent.putExtra("tendn",TXTL_login_TenDN.getEditText().getText().toString());
-                    intent.putExtra("manv",ktra);
-                    startActivity(intent);
-                }else{
-                    Toast.makeText(getApplicationContext(),"Đăng nhập thất bại!",Toast.LENGTH_SHORT).show();
-                }
+                //gửi dữ liệu user qua trang chủ
+                Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                intent.putExtra("tendn",TXTL_login_TenDN.getEditText().getText().toString());
+                intent.putExtra("manv",ktra);
+                startActivity(intent);
+            }else{
+                Toast.makeText(getApplicationContext(),"Đăng nhập thất bại!",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -91,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
 
     //region Validate field
     private boolean validateUserName(){
-        String val = TXTL_login_TenDN.getEditText().getText().toString().trim();
+        String val = Objects.requireNonNull(TXTL_login_TenDN.getEditText()).getText().toString().trim();
 
         if(val.isEmpty()){
             TXTL_login_TenDN.setError(getResources().getString(R.string.not_empty));
@@ -104,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private boolean validatePassWord(){
-        String val = TXTL_login_MatKhau.getEditText().getText().toString().trim();
+        String val = Objects.requireNonNull(TXTL_login_MatKhau.getEditText()).getText().toString().trim();
 
         if(val.isEmpty()){
             TXTL_login_MatKhau.setError(getResources().getString(R.string.not_empty));
@@ -115,5 +114,4 @@ public class LoginActivity extends AppCompatActivity {
             return true;
         }
     }
-    //endregion
 }

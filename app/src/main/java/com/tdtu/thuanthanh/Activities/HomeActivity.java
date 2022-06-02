@@ -7,6 +7,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -24,8 +25,9 @@ import com.tdtu.thuanthanh.Fragments.DisplayStatisticFragment;
 import com.tdtu.thuanthanh.Fragments.DisplayTableFragment;
 import com.tdtu.thuanthanh.R;
 
+import java.util.Objects;
+
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    MenuItem selectedFeature, selectedManager;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
@@ -34,6 +36,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     int maquyen = 0;
     SharedPreferences sharedPreferences;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +52,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         //xử lý toolbar và navigation
         setSupportActionBar(toolbar); //tạo toolbar
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         //tạo nút mở navigation
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.opentoggle,R.string.closetoggle){
@@ -81,6 +84,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setCheckedItem(R.id.nav_home);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();

@@ -3,6 +3,7 @@ package com.tdtu.thuanthanh.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -36,18 +37,19 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
     int maban, madondat;
     FragmentManager fragmentManager;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.payment_layout);
 
         //region thuộc tính view
-        gvDisplayPayment= (GridView)findViewById(R.id.gvDisplayPayment);
-        IMG_payment_backbtn = (ImageView)findViewById(R.id.img_payment_backbtn);
-        TXT_payment_TenBan = (TextView)findViewById(R.id.txt_payment_TenBan);
-        TXT_payment_NgayDat = (TextView)findViewById(R.id.txt_payment_NgayDat);
-        TXT_payment_TongTien = (TextView)findViewById(R.id.txt_payment_TongTien);
-        BTN_payment_ThanhToan = (Button)findViewById(R.id.btn_payment_ThanhToan);
+        gvDisplayPayment= findViewById(R.id.gvDisplayPayment);
+        IMG_payment_backbtn = findViewById(R.id.img_payment_backbtn);
+        TXT_payment_TenBan = findViewById(R.id.txt_payment_TenBan);
+        TXT_payment_NgayDat = findViewById(R.id.txt_payment_NgayDat);
+        TXT_payment_TongTien = findViewById(R.id.txt_payment_TongTien);
+        BTN_payment_ThanhToan = findViewById(R.id.btn_payment_ThanhToan);
         //endregion
 
         //khởi tạo kết nối csdl
@@ -74,15 +76,16 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
                 int soluong = thanhToanDTOS.get(i).getSoLuong();
                 int giatien = thanhToanDTOS.get(i).getGiaTien();
 
-                tongtien += (soluong * giatien);
+                tongtien += ((long) soluong * giatien);
             }
-            TXT_payment_TongTien.setText(String.valueOf(tongtien) +" VNĐ");
+            TXT_payment_TongTien.setText(tongtien +" VNĐ");
         }
 
         BTN_payment_ThanhToan.setOnClickListener(this);
         IMG_payment_backbtn.setOnClickListener(this);
     }
 
+    @SuppressLint({"NonConstantResourceId", "SetTextI18n"})
     @Override
     public void onClick(View v) {
         int id = v.getId();
@@ -94,9 +97,9 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
                 if(ktraban && ktradondat && ktratongtien){
                     HienThiThanhToan();
                     TXT_payment_TongTien.setText("0 VNĐ");
-                    Toast.makeText(getApplicationContext(),"Thanh toán thành công!",Toast.LENGTH_SHORT);
+                    Toast.makeText(getApplicationContext(),"Thanh toán thành công!",Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(getApplicationContext(),"Lỗi thanh toán!",Toast.LENGTH_SHORT);
+                    Toast.makeText(getApplicationContext(),"Lỗi thanh toán!",Toast.LENGTH_SHORT).show();
                 }
                 break;
 

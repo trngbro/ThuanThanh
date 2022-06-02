@@ -1,15 +1,16 @@
 package com.tdtu.thuanthanh.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.tdtu.thuanthanh.DAO.PhieuMuaDAO;
 import com.tdtu.thuanthanh.R;
+
+import java.util.Objects;
 
 public class AddTableActivity extends AppCompatActivity {
 
@@ -27,25 +28,22 @@ public class AddTableActivity extends AppCompatActivity {
         BTN_addtable_TaoBan = (Button)findViewById(R.id.btn_addtable_TaoBan);
 
         phieuMuaDAO = new PhieuMuaDAO(this);
-        BTN_addtable_TaoBan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String sTenBanAn = TXTL_addtable_tenban.getEditText().getText().toString();
-                if(validateName()){
-                    boolean ktra = phieuMuaDAO.ThemBanAn(sTenBanAn);
-                    //trả về result cho displaytable
-                    Intent intent = new Intent();
-                    intent.putExtra("ketquathem",ktra);
-                    setResult(RESULT_OK,intent);
-                    finish();
-                }
+        BTN_addtable_TaoBan.setOnClickListener(v -> {
+            String sTenBanAn = Objects.requireNonNull(TXTL_addtable_tenban.getEditText()).getText().toString();
+            if(validateName()){
+                boolean ktra = phieuMuaDAO.ThemBanAn(sTenBanAn);
+                //trả về result cho displaytable
+                Intent intent = new Intent();
+                intent.putExtra("ketquathem",ktra);
+                setResult(RESULT_OK,intent);
+                finish();
             }
         });
     }
 
     //validate dữ liệu
     private boolean validateName(){
-        String val = TXTL_addtable_tenban.getEditText().getText().toString().trim();
+        String val = Objects.requireNonNull(TXTL_addtable_tenban.getEditText()).getText().toString().trim();
         if(val.isEmpty()){
             TXTL_addtable_tenban.setError(getResources().getString(R.string.not_empty));
             return false;

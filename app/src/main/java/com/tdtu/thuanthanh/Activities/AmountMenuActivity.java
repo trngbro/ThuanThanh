@@ -1,18 +1,16 @@
 package com.tdtu.thuanthanh.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
+import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputLayout;
 import com.tdtu.thuanthanh.DAO.ChiTietDonDatDAO;
 import com.tdtu.thuanthanh.DAO.DonDatDAO;
 import com.tdtu.thuanthanh.DTO.ChiTietDonDatDTO;
 import com.tdtu.thuanthanh.R;
+import java.util.Objects;
 
 public class AmountMenuActivity extends AppCompatActivity {
 
@@ -40,46 +38,43 @@ public class AmountMenuActivity extends AppCompatActivity {
         maban = intent.getIntExtra("maban",0);
         mamon = intent.getIntExtra("mamon",0);
 
-        BTN_amountmenu_DongY.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!validateAmount()){
-                    return;
-                }
+        BTN_amountmenu_DongY.setOnClickListener(v -> {
+            if(!validateAmount()){
+                return;
+            }
 
-                int madondat = (int) donDatDAO.LayMaDonTheoMaBan(maban,"false");
-                boolean ktra = chiTietDonDatDAO.KiemTraMonTonTai(madondat,mamon);
-                if(ktra){
-                    //update số lượng món ăn đã chọn
-                    int sluongcu = chiTietDonDatDAO.LaySLMonTheoMaDon(madondat,mamon);
-                    int sluongmoi = Integer.parseInt(TXTL_amountmenu_SoLuong.getEditText().getText().toString());
-                    int tongsl = sluongcu + sluongmoi;
+            int madondat = (int) donDatDAO.LayMaDonTheoMaBan(maban,"false");
+            boolean ktra = chiTietDonDatDAO.KiemTraMonTonTai(madondat,mamon);
+            if(ktra){
+                //update số lượng món ăn đã chọn
+                int sluongcu = chiTietDonDatDAO.LaySLMonTheoMaDon(madondat,mamon);
+                int sluongmoi = Integer.parseInt(Objects.requireNonNull(TXTL_amountmenu_SoLuong.getEditText()).getText().toString());
+                int tongsl = sluongcu + sluongmoi;
 
-                    ChiTietDonDatDTO chiTietDonDatDTO = new ChiTietDonDatDTO();
-                    chiTietDonDatDTO.setMaMon(mamon);
-                    chiTietDonDatDTO.setMaDonDat(madondat);
-                    chiTietDonDatDTO.setSoLuong(tongsl);
+                ChiTietDonDatDTO chiTietDonDatDTO = new ChiTietDonDatDTO();
+                chiTietDonDatDTO.setMaMon(mamon);
+                chiTietDonDatDTO.setMaDonDat(madondat);
+                chiTietDonDatDTO.setSoLuong(tongsl);
 
-                    boolean ktracapnhat = chiTietDonDatDAO.CapNhatSL(chiTietDonDatDTO);
-                    if(ktracapnhat){
-                        Toast.makeText(getApplicationContext(),getResources().getString(R.string.add_sucessful),Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(getApplicationContext(),getResources().getString(R.string.add_failed),Toast.LENGTH_SHORT).show();
-                    }
+                boolean ktracapnhat = chiTietDonDatDAO.CapNhatSL(chiTietDonDatDTO);
+                if(ktracapnhat){
+                    Toast.makeText(getApplicationContext(),getResources().getString(R.string.add_sucessful),Toast.LENGTH_SHORT).show();
                 }else{
-                    //thêm số lượng món ăn nếu chưa chọn món ăn này
-                    int sluong = Integer.parseInt(TXTL_amountmenu_SoLuong.getEditText().getText().toString());
-                    ChiTietDonDatDTO chiTietDonDatDTO = new ChiTietDonDatDTO();
-                    chiTietDonDatDTO.setMaMon(mamon);
-                    chiTietDonDatDTO.setMaDonDat(madondat);
-                    chiTietDonDatDTO.setSoLuong(sluong);
+                    Toast.makeText(getApplicationContext(),getResources().getString(R.string.add_failed),Toast.LENGTH_SHORT).show();
+                }
+            }else{
+                //thêm số lượng món ăn nếu chưa chọn món ăn này
+                int sluong = Integer.parseInt(Objects.requireNonNull(TXTL_amountmenu_SoLuong.getEditText()).getText().toString());
+                ChiTietDonDatDTO chiTietDonDatDTO = new ChiTietDonDatDTO();
+                chiTietDonDatDTO.setMaMon(mamon);
+                chiTietDonDatDTO.setMaDonDat(madondat);
+                chiTietDonDatDTO.setSoLuong(sluong);
 
-                    boolean ktracapnhat = chiTietDonDatDAO.ThemChiTietDonDat(chiTietDonDatDTO);
-                    if(ktracapnhat){
-                        Toast.makeText(getApplicationContext(),getResources().getString(R.string.add_sucessful),Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(getApplicationContext(),getResources().getString(R.string.add_failed),Toast.LENGTH_SHORT).show();
-                    }
+                boolean ktracapnhat = chiTietDonDatDAO.ThemChiTietDonDat(chiTietDonDatDTO);
+                if(ktracapnhat){
+                    Toast.makeText(getApplicationContext(),getResources().getString(R.string.add_sucessful),Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getApplicationContext(),getResources().getString(R.string.add_failed),Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -87,7 +82,7 @@ public class AmountMenuActivity extends AppCompatActivity {
 
     //validate số lượng
     private boolean validateAmount(){
-        String val = TXTL_amountmenu_SoLuong.getEditText().getText().toString().trim();
+        String val = Objects.requireNonNull(TXTL_amountmenu_SoLuong.getEditText()).getText().toString().trim();
         if(val.isEmpty()){
             TXTL_amountmenu_SoLuong.setError(getResources().getString(R.string.not_empty));
             return false;

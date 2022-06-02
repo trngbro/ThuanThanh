@@ -6,6 +6,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -30,6 +31,7 @@ import com.tdtu.thuanthanh.R;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.Objects;
 
 public class AddMenuActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -62,6 +64,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         }
     });
     
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +89,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         maloai = intent.getIntExtra("maLoai",-1);
         tenloai = intent.getStringExtra("tenLoai");
         sanPhamDAO = new SanPhamDAO(this);  //khởi tạo đối tượng dao kết nối csdl
-        TXTL_addmenu_LoaiMon.getEditText().setText(tenloai);
+        Objects.requireNonNull(TXTL_addmenu_LoaiMon.getEditText()).setText(tenloai);
 
         BitmapDrawable olddrawable = (BitmapDrawable)IMG_addmenu_ThemHinh.getDrawable();
         bitmapold = olddrawable.getBitmap();
@@ -97,8 +100,8 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
             TXT_addmenu_title.setText("Sửa thực đơn");
             SanPhamDTO sanPhamDTO = sanPhamDAO.LayMonTheoMa(mamon);
 
-            TXTL_addmenu_TenMon.getEditText().setText(sanPhamDTO.getTenMon());
-            TXTL_addmenu_GiaTien.getEditText().setText(sanPhamDTO.getGiaTien());
+            Objects.requireNonNull(TXTL_addmenu_TenMon.getEditText()).setText(sanPhamDTO.getTenMon());
+            Objects.requireNonNull(TXTL_addmenu_GiaTien.getEditText()).setText(sanPhamDTO.getGiaTien());
 
             byte[] menuimage = sanPhamDTO.getHinhAnh();
             Bitmap bitmap = BitmapFactory.decodeByteArray(menuimage,0,menuimage.length);
@@ -122,6 +125,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         IMG_addmenu_back.setOnClickListener(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         int id = v.getId();
@@ -146,8 +150,8 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
                     return;
                 }
 
-                sTenMon = TXTL_addmenu_TenMon.getEditText().getText().toString();
-                sGiaTien = TXTL_addmenu_GiaTien.getEditText().getText().toString();
+                sTenMon = Objects.requireNonNull(TXTL_addmenu_TenMon.getEditText()).getText().toString();
+                sGiaTien = Objects.requireNonNull(TXTL_addmenu_GiaTien.getEditText()).getText().toString();
                 switch (RG_addmenu_TinhTrang.getCheckedRadioButtonId()){
                     case R.id.rd_addmenu_ConMon: sTinhTrang = "true";   break;
                     case R.id.rd_addmenu_HetMon: sTinhTrang = "false";  break;
@@ -182,8 +186,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
         Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG,100,stream);
-        byte[] byteArray = stream.toByteArray();
-        return byteArray;
+        return stream.toByteArray();
     }
 
     //region Validate field
@@ -200,7 +203,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private boolean validateName(){
-        String val = TXTL_addmenu_TenMon.getEditText().getText().toString().trim();
+        String val = Objects.requireNonNull(TXTL_addmenu_TenMon.getEditText()).getText().toString().trim();
         if(val.isEmpty()){
             TXTL_addmenu_TenMon.setError(getResources().getString(R.string.not_empty));
             return false;
@@ -212,7 +215,7 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private boolean validatePrice(){
-        String val = TXTL_addmenu_GiaTien.getEditText().getText().toString().trim();
+        String val = Objects.requireNonNull(TXTL_addmenu_GiaTien.getEditText()).getText().toString().trim();
         if(val.isEmpty()){
             TXTL_addmenu_GiaTien.setError(getResources().getString(R.string.not_empty));
             return false;
@@ -225,5 +228,4 @@ public class AddMenuActivity extends AppCompatActivity implements View.OnClickLi
             return true;
         }
     }
-    //endregion
 }
