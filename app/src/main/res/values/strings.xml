@@ -31,4 +31,6 @@
     <string name="addcategory">Thêm thực đơn</string>
     <string name="editcategory">Sửa thực đơn</string>
     <string name="choseimg">Chọn hình</string>
+    <string name="Amount">Số lượng món ăn</string>
+    <string name="EditTable">Sửa bàn ăn</string>
 </resources>

@@ -9,27 +9,43 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ThuanThanh">
-        <activity android:name=".Activities.DetailStatisticActivity"></activity>
-        <activity android:name=".Activities.AddStaffActivity" />
+
+
         <activity
             android:name=".Activities.EditTableActivity"
-            android:label="Sửa bàn ăn"
+            android:label="@string/EditTable"
             android:theme="@style/PopUpActivity" />
-        <activity android:name=".Activities.PaymentActivity" />
+
         <activity
             android:name=".Activities.AmountMenuActivity"
-            android:label="số lượng món ăn"
+            android:label="@string/Amount"
             android:theme="@style/PopUpActivity" />
-        <activity android:name=".Activities.AddCategoryActivity" />
-        <activity android:name=".Activities.AddMenuActivity" />
+
         <activity
             android:name=".Activities.AddTableActivity"
             android:label="@string/addTable"
             android:theme="@style/PopUpActivity" />
+
+
+        <activity android:name=".Activities.PaymentActivity" />
+
+        <activity android:name=".Activities.AddCategoryActivity" />
+
+        <activity android:name=".Activities.AddMenuActivity" />
+
         <activity android:name=".Activities.HomeActivity" />
+
         <activity android:name=".Activities.LoginActivity" />
+
         <activity android:name=".Activities.Register2ndActivity" />
+
         <activity android:name=".Activities.RegisterActivity" />
+
+        <activity android:name=".Activities.DetailStatisticActivity" />
+
+        <activity android:name=".Activities.AddStaffActivity" />
+
+
         <activity android:name=".Activities.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,9 +54,11 @@
             </intent-filter>
         </activity>
 
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>

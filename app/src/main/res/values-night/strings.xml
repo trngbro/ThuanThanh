@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Amount">Số lượng món ăn</string>
+    <string name="EditTable">Sửa bàn ăn</string>
+</resources>
