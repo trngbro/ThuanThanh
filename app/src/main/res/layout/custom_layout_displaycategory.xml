@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/img_customcategory_HinhLoai"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="300dp"
         android:background="@drawable/pic_cate"
         android:scaleType="fitXY" />
 
