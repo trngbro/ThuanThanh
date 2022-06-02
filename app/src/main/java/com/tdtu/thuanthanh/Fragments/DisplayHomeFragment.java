@@ -1,5 +1,6 @@
 package com.tdtu.thuanthanh.Fragments;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -27,6 +28,7 @@ import com.tdtu.thuanthanh.R;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 
 public class DisplayHomeFragment extends Fragment implements View.OnClickListener {
 
@@ -43,7 +45,7 @@ public class DisplayHomeFragment extends Fragment implements View.OnClickListene
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.displayhome_layout,container,false);
-        ((HomeActivity)getActivity()).getSupportActionBar().setTitle("Trang chủ");
+        Objects.requireNonNull(((HomeActivity) requireActivity()).getSupportActionBar()).setTitle("Trang chủ");
         setHasOptionsMenu(true);
 
         //region Lấy dối tượng view
@@ -72,6 +74,7 @@ public class DisplayHomeFragment extends Fragment implements View.OnClickListene
         return view;
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void HienThiDSLoai(){
         rcv_displayhome_LoaiMon.setHasFixedSize(true);
         rcv_displayhome_LoaiMon.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
@@ -81,11 +84,12 @@ public class DisplayHomeFragment extends Fragment implements View.OnClickListene
         adapterRecycleViewCategory.notifyDataSetChanged();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void HienThiDonTrongNgay(){
         rcv_displayhome_DonTrongNgay.setHasFixedSize(true);
         rcv_displayhome_DonTrongNgay.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         String ngaydat= dateFormat.format(calendar.getTime());
 
         donDatDTOS = donDatDAO.LayDSDonDatNgay(ngaydat);
@@ -94,16 +98,17 @@ public class DisplayHomeFragment extends Fragment implements View.OnClickListene
         adapterRecycleViewCategory.notifyDataSetChanged();
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         int id = v.getId();
 
-        NavigationView navigationView = (NavigationView)getActivity().findViewById(R.id.navigation_view_trangchu);
+        NavigationView navigationView = (NavigationView) requireActivity().findViewById(R.id.navigation_view_trangchu);
         switch (id){
             case R.id.layout_displayhome_ThongKe:
 
             case R.id.txt_displayhome_ViewAllStatistic:
-                FragmentTransaction tranDisplayStatistic = getActivity().getSupportFragmentManager().beginTransaction();
+                FragmentTransaction tranDisplayStatistic = requireActivity().getSupportFragmentManager().beginTransaction();
                 tranDisplayStatistic.replace(R.id.contentView,new DisplayStatisticFragment());
                 tranDisplayStatistic.addToBackStack(null);
                 tranDisplayStatistic.commit();
@@ -112,7 +117,7 @@ public class DisplayHomeFragment extends Fragment implements View.OnClickListene
                 break;
 
             case R.id.layout_displayhome_XemBan:
-                FragmentTransaction tranDisplayTable = getActivity().getSupportFragmentManager().beginTransaction();
+                FragmentTransaction tranDisplayTable = requireActivity().getSupportFragmentManager().beginTransaction();
                 tranDisplayTable.replace(R.id.contentView,new DisplayTableFragment());
                 tranDisplayTable.addToBackStack(null);
                 tranDisplayTable.commit();
@@ -128,7 +133,7 @@ public class DisplayHomeFragment extends Fragment implements View.OnClickListene
                 break;
 
             case R.id.txt_displayhome_ViewAllCategory:
-                FragmentTransaction tranDisplayCategory = getActivity().getSupportFragmentManager().beginTransaction();
+                FragmentTransaction tranDisplayCategory = requireActivity().getSupportFragmentManager().beginTransaction();
                 tranDisplayCategory.replace(R.id.contentView,new DisplayCategoryFragment());
                 tranDisplayCategory.addToBackStack(null);
                 tranDisplayCategory.commit();

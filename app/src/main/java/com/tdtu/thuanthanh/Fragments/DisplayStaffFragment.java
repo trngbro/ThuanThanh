@@ -1,5 +1,6 @@
 package com.tdtu.thuanthanh.Fragments;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,23 +15,20 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.tdtu.thuanthanh.Activities.AddStaffActivity;
 import com.tdtu.thuanthanh.Activities.HomeActivity;
-import com.tdtu.thuanthanh.Activities.RegisterActivity;
 import com.tdtu.thuanthanh.CustomAdapter.AdapterDisplayStaff;
 import com.tdtu.thuanthanh.DAO.NhanVienDAO;
 import com.tdtu.thuanthanh.DTO.NhanVienDTO;
 import com.tdtu.thuanthanh.R;
 
 import java.util.List;
+import java.util.Objects;
 
 public class DisplayStaffFragment extends Fragment {
 
@@ -39,38 +37,36 @@ public class DisplayStaffFragment extends Fragment {
     List<NhanVienDTO> nhanVienDTOS;
     AdapterDisplayStaff adapterDisplayStaff;
 
-    ActivityResultLauncher<Intent> resultLauncherAdd = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-        @Override
-        public void onActivityResult(ActivityResult result) {
-            if(result.getResultCode() == Activity.RESULT_OK){
-                Intent intent = result.getData();
-                long ktra = intent.getLongExtra("ketquaktra",0);
-                String chucnang = intent.getStringExtra("chucnang");
-                if(chucnang.equals("themnv"))
-                {
-                    if(ktra != 0){
-                        HienThiDSNV();
-                        Toast.makeText(getActivity(),"Thêm thành công",Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(getActivity(),"Thêm thất bại",Toast.LENGTH_SHORT).show();
-                    }
+    ActivityResultLauncher<Intent> resultLauncherAdd = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+        if(result.getResultCode() == Activity.RESULT_OK){
+            Intent intent = result.getData();
+            assert intent != null;
+            long ktra = intent.getLongExtra("ketquaktra",0);
+            String chucnang = intent.getStringExtra("chucnang");
+            if(chucnang.equals("themnv"))
+            {
+                if(ktra != 0){
+                    HienThiDSNV();
+                    Toast.makeText(getActivity(),"Thêm thành công",Toast.LENGTH_SHORT).show();
                 }else{
-                    if(ktra != 0){
-                        HienThiDSNV();
-                        Toast.makeText(getActivity(),"Sửa thành công",Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(getActivity(),"Sửa thất bại",Toast.LENGTH_SHORT).show();
-                    }
+                    Toast.makeText(getActivity(),"Thêm thất bại",Toast.LENGTH_SHORT).show();
                 }
-
+            }else{
+                if(ktra != 0){
+                    HienThiDSNV();
+                    Toast.makeText(getActivity(),"Sửa thành công",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getActivity(),"Sửa thất bại",Toast.LENGTH_SHORT).show();
+                }
             }
+
         }
     });
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.displaystaff_layout,container,false);
-        ((HomeActivity)getActivity()).getSupportActionBar().setTitle("Quản lý nhân viên");
+        Objects.requireNonNull(((HomeActivity) requireActivity()).getSupportActionBar()).setTitle("Quản lý nhân viên");
         setHasOptionsMenu(true);
 
         gvStaff = (GridView)view.findViewById(R.id.gvStaff) ;
@@ -84,11 +80,12 @@ public class DisplayStaffFragment extends Fragment {
     }
 
     @Override
-    public void onCreateContextMenu(ContextMenu menu,View v,ContextMenu.ContextMenuInfo menuInfo) {
+    public void onCreateContextMenu(@NonNull ContextMenu menu, @NonNull View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        getActivity().getMenuInflater().inflate(R.menu.edit_context_menu,menu);
+        requireActivity().getMenuInflater().inflate(R.menu.edit_context_menu,menu);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -107,10 +104,10 @@ public class DisplayStaffFragment extends Fragment {
                 boolean ktra = nhanVienDAO.XoaNV(manv);
                 if(ktra){
                     HienThiDSNV();
-                    Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.delete_sucessful)
+                    Toast.makeText(getActivity(), requireActivity().getResources().getString(R.string.delete_sucessful)
                             ,Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.delete_failed)
+                    Toast.makeText(getActivity(), requireActivity().getResources().getString(R.string.delete_failed)
                             ,Toast.LENGTH_SHORT).show();
                 }
                 break;
@@ -119,7 +116,7 @@ public class DisplayStaffFragment extends Fragment {
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         MenuItem itAddStaff = menu.add(1,R.id.itAddStaff,1,"Thêm nhân viên");
         itAddStaff.setIcon(R.drawable.ic_baseline_add_24);
@@ -129,11 +126,9 @@ public class DisplayStaffFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        switch (id){
-            case R.id.itAddStaff:
-                Intent iDangky = new Intent(getActivity(), AddStaffActivity.class);
-                resultLauncherAdd.launch(iDangky);
-                break;
+        if (id == R.id.itAddStaff) {
+            Intent iDangky = new Intent(getActivity(), AddStaffActivity.class);
+            resultLauncherAdd.launch(iDangky);
         }
         return super.onOptionsItemSelected(item);
     }
