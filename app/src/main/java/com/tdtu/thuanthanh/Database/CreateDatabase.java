@@ -4,8 +4,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
-
 public class CreateDatabase extends SQLiteOpenHelper {
 
     public static String TBL_NHANVIEN = "NHANVIEN";
