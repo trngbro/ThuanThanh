@@ -37,7 +37,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
     public static String TBL_MONAN_HINHANH = "HINHANH";
     public static String TBL_MONAN_MALOAI = "MALOAI";
 
-    //Bảng loại thực đơn
+    //Bảng Thực đơn
     public static String TBL_LOAITHUCDON_MALOAI = "MALOAI";
     public static String TBL_LOAITHUCDON_TENLOAI = "TENLOAI";
     public static String TBL_LOAITHUCDON_HINHANH = "HINHANH";

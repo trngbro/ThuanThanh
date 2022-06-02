@@ -26,7 +26,7 @@
             android:background="@drawable/round_corner_categorytext"
             android:fontFamily="@font/muli_black"
             android:padding="8dp"
-            android:text="Tên loại"
+            android:text="Tên Thực đơn"
             android:textColor="@color/black"
             android:textSize="25sp" />
 

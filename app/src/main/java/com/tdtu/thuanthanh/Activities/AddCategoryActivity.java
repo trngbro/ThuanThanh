@@ -88,7 +88,7 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
             Bitmap bitmap = BitmapFactory.decodeByteArray(categoryimage,0,categoryimage.length);
             IMG_addcategory_ThemHinh.setImageBitmap(bitmap);
 
-            BTN_addcategory_TaoLoai.setText("Sửa loại");
+            BTN_addcategory_TaoLoai.setText("Sửa Thực đơn");
         }
 
         IMG_addcategory_back.setOnClickListener(this);
@@ -132,7 +132,7 @@ public class AddCategoryActivity extends AppCompatActivity implements View.OnCli
                     chucnang = "themloai";
                 }
 
-                //Thêm, sửa loại dựa theo obj loaimonDTO
+                //Thêm, sửa Thực đơn dựa theo obj loaimonDTO
                 Intent intent = new Intent();
                 intent.putExtra("ktra",ktra);
                 intent.putExtra("chucnang",chucnang);

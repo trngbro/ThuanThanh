@@ -95,7 +95,7 @@
                 android:id="@+id/txtl_addmenu_LoaiMon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Loại thực đơn"
+                android:hint="Thực đơn"
                 app:startIconDrawable="@drawable/ic_baseline_reorder_24"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:startIconTint="@color/black"

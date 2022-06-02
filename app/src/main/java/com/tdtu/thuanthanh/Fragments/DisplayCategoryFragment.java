@@ -145,7 +145,7 @@ public class DisplayCategoryFragment extends Fragment {
         return true;
     }
 
-    //khởi tạo nút thêm loại
+    //khởi tạo nút thêm Thực đơn
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -154,7 +154,7 @@ public class DisplayCategoryFragment extends Fragment {
         itAddCategory.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
     }
 
-    //xử lý nút thêm loại
+    //xử lý nút thêm Thực đơn
     @Override
     public boolean onOptionsItemSelected( MenuItem item) {
         int id = item.getItemId();
