@@ -96,6 +96,6 @@
         android:gravity="center|bottom"
         android:layout_marginBottom="5dp"
         android:textStyle="italic"
-        android:text="Ⓒ Power by \nTran Dinh Phuc \nNguyen Trung Nghia" />
+        android:text="Ⓒ Power by ..." />
 
 </LinearLayout>

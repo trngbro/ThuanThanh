@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tdtu.thuanthanh.R;
 
@@ -16,7 +18,8 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_layout);
-
+        TextView tvC = findViewById(R.id.NoCopyRight);
+        tvC.setOnClickListener(view -> Toast.makeText(WelcomeActivity.this,"Trần Đình Phúc - 52000109 \nNguyễn Trung Nghĩa - 52000693",Toast.LENGTH_LONG).show());
     }
     //chuyển sang trang đăng nhập
     public void callLoginFromWel(View view) {
@@ -46,4 +49,6 @@ public class WelcomeActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+
 }

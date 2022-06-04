@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/activity_detail_own.xml" value="0.25" />
+        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/addcategory_layout.xml" value="0.129981884057971" />
+        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/addtable_layout.xml" value="0.25" />
+        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/displaytable_layout.xml" value="0.25" />
+        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/register_layout.xml" value="0.25" />
+        <entry key="..\:/Users/PC/AndroidStudioProjects/ThuanThanh/app/src/main/res/layout/welcome_layout.xml" value="0.264" />
         <entry key="..\:/Users/trngx/AndroidStudioProjects/FinalTamSport/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.1" />
         <entry key="..\:/Users/trngx/AndroidStudioProjects/FinalTamSport/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1" />
         <entry key="..\:/Users/trngx/AndroidStudioProjects/FinalTamSport/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.1" />
