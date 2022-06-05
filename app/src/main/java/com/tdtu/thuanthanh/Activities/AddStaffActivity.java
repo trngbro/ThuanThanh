@@ -283,15 +283,9 @@ public class AddStaffActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private boolean validateAge(){
-        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-        int userAge = DT_addstaff_NgaySinh.getYear();
-        int isAgeValid = currentYear - userAge;
-
-        if(isAgeValid < 10){
-            Toast.makeText(this,"Bạn không đủ tuổi đăng ký!",Toast.LENGTH_SHORT).show();
-            return false;
-        }else{
+        if(DT_addstaff_NgaySinh.getYear() < Calendar.getInstance().get(Calendar.YEAR))
             return true;
-        }
+        Toast.makeText(this,"Tuổi không hợp lệ!",Toast.LENGTH_SHORT).show();
+        return false;
     }
 }

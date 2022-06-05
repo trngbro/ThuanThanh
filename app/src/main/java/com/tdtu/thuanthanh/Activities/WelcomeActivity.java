@@ -19,7 +19,7 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_layout);
         TextView tvC = findViewById(R.id.NoCopyRight);
-        tvC.setOnClickListener(view -> Toast.makeText(WelcomeActivity.this,"Trần Đình Phúc - 52000109 \nNguyễn Trung Nghĩa - 52000693",Toast.LENGTH_LONG).show());
+        tvC.setOnClickListener(view -> Toast.makeText(WelcomeActivity.this,"52000109 - Trần Đình Phúc\n52000693 - Nguyễn Trung Nghĩa",Toast.LENGTH_LONG).show());
     }
     //chuyển sang trang đăng nhập
     public void callLoginFromWel(View view) {
@@ -49,6 +49,4 @@ public class WelcomeActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
-
-
 }

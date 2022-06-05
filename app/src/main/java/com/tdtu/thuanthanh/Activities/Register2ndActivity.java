@@ -129,14 +129,9 @@ public class Register2ndActivity extends AppCompatActivity {
     }
 
     private boolean validateAge(){
-        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-        int userAge = DT_signup_NgaySinh.getYear();
-
-        if(userAge >= currentYear){
-            Toast.makeText(this,"Tuổi không hợp lệ!",Toast.LENGTH_SHORT).show();
-            return false;
-        }else{
+        if(DT_signup_NgaySinh.getYear() < Calendar.getInstance().get(Calendar.YEAR))
             return true;
-        }
+        Toast.makeText(this,"Tuổi không hợp lệ!",Toast.LENGTH_SHORT).show();
+        return false;
     }
 }

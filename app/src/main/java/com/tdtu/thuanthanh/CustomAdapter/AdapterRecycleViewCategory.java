@@ -61,5 +61,4 @@ public class AdapterRecycleViewCategory extends RecyclerView.Adapter<AdapterRecy
             img_customcategory_HinhLoai = itemView.findViewById(R.id.img_customcategory_HinhLoai);
         }
     }
-
 }
