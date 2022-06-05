@@ -1,0 +1,46 @@
+package com.tdtu.thuanthanh.Activities;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.tdtu.thuanthanh.R;
+
+
+public class SplashActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.splash_layout);
+
+        //tạo đối tượng view
+        ImageView IMGLogo = findViewById(R.id.imgLogo);
+        TextView TXTCoffeeshop = findViewById(R.id.txtCoffeeshop);
+        TextView TXTPowered = findViewById(R.id.txtPowered);
+
+        //lấy đối tượng animation
+        Animation sideAnim = AnimationUtils.loadAnimation(this,R.anim.side_anim);
+        Animation bottomAnim = AnimationUtils.loadAnimation(this,R.anim.bottom_anim);
+
+        //thiết lập animation cho component
+        IMGLogo.setAnimation(sideAnim);
+        TXTCoffeeshop.setAnimation(sideAnim);
+        TXTPowered.setAnimation(bottomAnim);
+
+        int SPLASH_TIMER = 3000;
+        new Handler().postDelayed(() -> {
+            Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            //destroy activity khi back sẽ ko về splash
+            finish();
+        }, SPLASH_TIMER);
+    }
+}

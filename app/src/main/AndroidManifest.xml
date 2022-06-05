@@ -10,12 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ThuanThanh">
         <activity
-            android:name=".Activities.j$DetailOwn"
-            android:exported="false" />
-        <activity
-            android:name=".Activities.AddCategoryActivity$DetailOwn"
-            android:exported="false" />
-        <activity
             android:name=".Activities.EditTableActivity"
             android:label="@string/EditTable"
             android:theme="@style/PopUpActivity" />
@@ -36,7 +30,9 @@
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.DetailStatisticActivity" />
         <activity android:name=".Activities.AddStaffActivity" />
-        <activity android:name=".Activities.WelcomeActivity">
+        <activity android:name=".Activities.WelcomeActivity"/>
+        <activity android:name=".Activities.SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

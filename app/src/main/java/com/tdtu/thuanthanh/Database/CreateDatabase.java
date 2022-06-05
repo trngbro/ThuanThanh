@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class CreateDatabase extends SQLiteOpenHelper {
+public class    CreateDatabase extends SQLiteOpenHelper {
 
     public static String TBL_NHANVIEN = "NHANVIEN";
     public static String TBL_MONAN = "MON";
